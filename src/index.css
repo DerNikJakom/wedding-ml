@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Text Colors */
+  --text-primary: #ffffff;      /* Haupttext */
+  --text-secondary: #f0f0f0;    /* Sekundärer Text */
+  --text-muted: #e0e0e0;       /* Gedämpfter Text */
+  
+  /* Heading Colors */
+  --heading-primary: #ffffff;   /* Hauptüberschriften */
+  --heading-secondary: #f0f0f0; /* Sekundäre Überschriften */
+  
+  /* Special Elements */
+  --nav-text: #ffffff;         /* Navigationstext */
+  --nav-text-hover: #f0f0f0;   /* Navigationstext Hover */
+  --link-text: #ffffff;        /* Link-Text */
+  --link-hover: #f0f0f0;       /* Link Hover */
+}
+
+@layer base {
+  html {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  body {
+    @apply bg-primary;
+  }
+
+  /* Typography Base Styles */
+  h1 { color: var(--heading-primary); }
+  h2 { color: var(--heading-primary); }
+  h3 { color: var(--heading-secondary); }
+  h4, h5, h6 { color: var(--heading-secondary); }
+  
+  p { color: var(--text-primary); }
+  span { color: var(--text-primary); }
+  li { color: var(--text-primary); }
+  
+  a:not(.nav-link) {
+    color: var(--link-text);
+    &:hover { color: var(--link-hover); }
+  }
+  
+  label { color: var(--text-primary); }
+  input, select, textarea { color: var(--text-primary); }
+}
+
+@layer components {
+  .nav-link {
+    @apply px-4 py-2 transition-colors duration-200;
+    color: var(--nav-text);
+    &:hover { color: var(--nav-text-hover); }
+  }
+  
+  .nav-link.active {
+    color: var(--nav-text);
+    @apply font-medium;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-4 bg-white/10 hover:bg-white/20 transition-colors duration-200 
+           rounded-none text-lg w-full md:w-auto touch-manipulation border border-white/20
+           hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed;
+    color: var(--text-primary);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-4 bg-transparent hover:bg-white/10 transition-colors duration-200 
+           rounded-none text-lg w-full md:w-auto touch-manipulation border border-white/20;
+    color: var(--text-primary);
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-4 bg-transparent border-b border-white/20 focus:border-white outline-none 
+           transition-colors duration-200 text-lg touch-manipulation placeholder-white/60;
+    color: var(--text-primary);
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-5xl font-light mb-8 text-center font-serif;
+    color: var(--heading-primary);
+  }
+  
+  /* Text Utility Classes */
+  .text-content {
+    color: var(--text-primary);
+  }
+  
+  .text-content-secondary {
+    color: var(--text-secondary);
+  }
+  
+  .text-content-muted {
+    color: var(--text-muted);
+  }
+  
+  .heading-primary {
+    color: var(--heading-primary);
+  }
+  
+  .heading-secondary {
+    color: var(--heading-secondary);
+  }
+
+  /* Cards and Containers */
+  .touch-card {
+    @apply p-6 md:p-8 bg-white/5 shadow-sm border border-white/10 hover:border-white/20 
+           transition-all duration-200 touch-manipulation;
+  }
+
+  .mobile-container {
+    @apply px-4 md:px-6 py-8 md:py-16 mt-16;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading optimization */
+img {
+  content-visibility: auto;
+}
