@@ -5,6 +5,9 @@ import PageHeader from '../components/PageHeader';
 const RSVP = () => {
   const [isAttending, setIsAttending] = useState<string>('');
 
+  // Generiere Array mit Zahlen von 1 bis 10 für die Gästeauswahl
+  const guestOptions = Array.from({ length: 10 }, (_, i) => i + 1);
+
   return (
     <div>
       <PageHeader
@@ -125,8 +128,11 @@ const RSVP = () => {
                       required
                       className="input-field"
                     >
-                      <option value="1">1 Person</option>
-                      <option value="2">2 Personen</option>
+                      {guestOptions.map(num => (
+                        <option key={num} value={num}>
+                          {num} {num === 1 ? 'Person' : 'Personen'}
+                        </option>
+                      ))}
                     </select>
                   </div>
 

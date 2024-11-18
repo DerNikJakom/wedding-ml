@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Globe } from 'lucide-react';
+import { MapPin, Phone, Globe, Building } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 
 const hotels = [
@@ -46,13 +46,22 @@ const Accommodations = () => {
       />
 
       <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <div className="flex justify-center mb-6">
+            <Building className="w-12 h-12 text-primary" />
+          </div>
+          <h2 className="text-3xl font-serif mb-4 text-content">Komfortabel übernachten</h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
             Wir haben für unsere Hochzeitsgäste Sonderkonditionen in diesen ausgewählten Hotels vereinbart.
             Bitte erwähnen Sie bei der Buchung "Hochzeit Laura & Michael", um den vergünstigten Tarif zu erhalten.
             Buchen Sie frühzeitig, da die Zimmerkontingente begrenzt sind.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {hotels.map((hotel, index) => (

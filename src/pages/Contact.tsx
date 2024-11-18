@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Clock } from 'lucide-react';
+import { Mail, Phone, Clock, Users } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 
 const organizers = [
@@ -46,9 +46,14 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="flex justify-center mb-6">
+            <Users className="w-12 h-12 text-primary" />
+          </div>
+          <h2 className="text-3xl font-serif mb-4 text-content">Unser Organisationsteam</h2>
+          <p className="text-content-secondary max-w-2xl mx-auto">
             Um dem Brautpaar die Vorbereitungen zu erleichtern, wenden Sie sich bitte bei Fragen 
-            direkt an unser Organisationsteam. Wir helfen Ihnen gerne weiter!
+            direkt an unser Organisationsteam. Wir helfen Ihnen gerne weiter und sorgen dafür, 
+            dass alle Details perfekt koordiniert werden.
           </p>
         </motion.div>
 
@@ -64,39 +69,39 @@ const Contact = () => {
             >
               <div className="text-center mb-6">
                 <div className="w-20 h-20 bg-black/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-serif">{organizer.name.charAt(0)}</span>
+                  <span className="text-2xl font-serif text-content">{organizer.name.charAt(0)}</span>
                 </div>
-                <h3 className="text-xl font-serif mb-1">{organizer.name}</h3>
-                <p className="text-accent font-medium">{organizer.role}</p>
+                <h3 className="text-xl font-serif mb-1 text-content">{organizer.name}</h3>
+                <p className="text-content-secondary font-medium">{organizer.role}</p>
               </div>
 
-              <p className="text-gray-600 text-center mb-6">
+              <p className="text-content-secondary text-center mb-6">
                 {organizer.description}
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-gray-600">
-                  <Mail className="w-5 h-5" />
+                <div className="flex items-center gap-3 text-content-secondary">
+                  <Mail className="w-5 h-5 text-primary" />
                   <a 
                     href={`mailto:${organizer.email}`}
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-content transition-colors"
                   >
                     {organizer.email}
                   </a>
                 </div>
 
-                <div className="flex items-center gap-3 text-gray-600">
-                  <Phone className="w-5 h-5" />
+                <div className="flex items-center gap-3 text-content-secondary">
+                  <Phone className="w-5 h-5 text-primary" />
                   <a 
                     href={`tel:${organizer.phone}`}
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-content transition-colors"
                   >
                     {organizer.phone}
                   </a>
                 </div>
 
-                <div className="flex items-center gap-3 text-gray-600">
-                  <Clock className="w-5 h-5" />
+                <div className="flex items-center gap-3 text-content-secondary">
+                  <Clock className="w-5 h-5 text-primary" />
                   <span>{organizer.availability}</span>
                 </div>
               </div>
@@ -111,8 +116,8 @@ const Contact = () => {
           viewport={{ once: true }}
           className="mt-16 touch-card text-center"
         >
-          <h2 className="text-2xl font-serif mb-4">Dringende Angelegenheiten</h2>
-          <p className="text-gray-600">
+          <h2 className="text-2xl font-serif mb-4 text-content">Dringende Angelegenheiten</h2>
+          <p className="text-content-secondary">
             Bei sehr dringenden Anliegen außerhalb der Geschäftszeiten erreichen Sie unseren 
             24/7-Notfallkontakt unter: <br />
             <a 

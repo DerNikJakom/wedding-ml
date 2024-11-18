@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { MapPin, Calendar } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import TimelineEvent from '../components/TimelineEvent';
 
@@ -41,6 +42,23 @@ const EventDetails = () => {
       />
 
       <div className="max-w-4xl mx-auto px-4 py-16">
+        {/* Introduction Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <div className="flex justify-center mb-6">
+            <Calendar className="w-12 h-12 text-primary" />
+          </div>
+          <h2 className="text-3xl font-serif mb-4 text-content">Der Ablauf unserer Hochzeit</h2>
+          <p className="text-content-secondary max-w-2xl mx-auto">
+            Hier finden Sie alle wichtigen Informationen zum Ablauf unseres besonderen Tages.
+            Von der Trauung bis zum letzten Tanz haben wir einen wundervollen Tag für Sie geplant.
+          </p>
+        </motion.div>
+
         {/* Locations Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="space-y-4">

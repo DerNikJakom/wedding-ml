@@ -79,19 +79,19 @@ const Home = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-center text-cream z-10"
+          className="text-center z-10"
         >
-          <h1 className="font-serif text-6xl md:text-8xl mb-4">Laura & Michael</h1>
-          <p className="text-xl md:text-2xl mb-8">Wir heiraten</p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-lg">
+          <h1 className="font-serif text-6xl md:text-8xl mb-4 text-white">Laura & Michael</h1>
+          <p className="text-xl md:text-2xl mb-8 text-white">Wir heiraten!</p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-lg text-white">
             <div className="flex items-center gap-2">
-              <Calendar className="w-5 h-5" />
-              <span>08. Februar 2025</span>
+              <Calendar className="w-5 h-5 text-white" />
+              <span className="text-white">08. Februar 2025</span>
             </div>
-            <div className="hidden md:block">•</div>
+            <div className="hidden md:block text-white">•</div>
             <div className="flex items-center gap-2">
-              <MapPin className="w-5 h-5" />
-              <span>Wiesbaden</span>
+              <MapPin className="w-5 h-5 text-white" />
+              <span className="text-white">Wiesbaden</span>
             </div>
           </div>
         </motion.div>
@@ -174,7 +174,7 @@ const Home = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
-                  <p className="text-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg">
+                  <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg">
                     {photo.alt}
                   </p>
                 </div>

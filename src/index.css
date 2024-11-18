@@ -9,6 +9,7 @@
   --text-primary: #1a1a1a;      /* Haupttext */
   --text-secondary: #2d2d2d;    /* Sekundärer Text */
   --text-muted: #4a4a4a;       /* Gedämpfter Text */
+  --text-white: #ffffff;       /* Weißer Text */
   
   /* Heading Colors */
   --heading-primary: #1a1a1a;   /* Hauptüberschriften */
@@ -19,6 +20,11 @@
   --nav-text-hover: #4a4a4a;   /* Navigationstext Hover */
   --link-text: #1a1a1a;        /* Link-Text */
   --link-hover: #4a4a4a;       /* Link Hover */
+  
+  /* Button Colors */
+  --button-bg: #4a4a4a;        /* Button Hintergrund */
+  --button-hover: #2d2d2d;     /* Button Hover */
+  --button-text: #ffffff;      /* Button Text */
 }
 
 @layer base {
@@ -68,9 +74,13 @@
   }
   
   .btn-primary {
-    @apply px-6 py-4 bg-black/90 hover:bg-black transition-colors duration-200 
-           rounded-none text-lg w-full md:w-auto touch-manipulation
-           hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-cream;
+    @apply px-6 py-4 transition-colors duration-200 
+           rounded-none text-lg w-full md:w-auto touch-manipulation;
+    background-color: var(--button-bg);
+    color: var(--button-text) !important;
+    &:hover {
+      background-color: var(--button-hover);
+    }
   }
 
   .btn-secondary {

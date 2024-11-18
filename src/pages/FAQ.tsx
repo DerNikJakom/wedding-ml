@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Phone, Star, Shield, Clock, MapPin } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 
 const faqs = [
@@ -55,7 +55,23 @@ const FAQ = () => {
         image="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
       />
 
-      <div className="max-w-3xl mx-auto px-4 py-16">
+      <div className="max-w-4xl mx-auto px-4 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <div className="flex justify-center mb-6">
+            <HelpCircle className="w-12 h-12 text-primary" />
+          </div>
+          <h2 className="text-3xl font-serif mb-4 text-content">Ihre Fragen - Unsere Antworten</h2>
+          <p className="text-content-secondary max-w-2xl mx-auto">
+            Hier finden Sie Antworten auf die häufigsten Fragen zu unserer Hochzeit. 
+            Sollten Sie weitere Fragen haben, zögern Sie nicht, unser Organisationsteam zu kontaktieren.
+          </p>
+        </motion.div>
+
         <div className="space-y-8">
           {faqs.map((faq, index) => (
             <motion.div
