@@ -44,10 +44,10 @@ const FamilyGuide = () => {
           className="text-center mb-16"
         >
           <div className="flex justify-center mb-6">
-            <Heart className="w-12 h-12 text-gray-300" />
+            <Heart className="w-12 h-12 text-primary" />
           </div>
-          <h2 className="text-3xl font-serif mb-4 text-gray-100">Hinweis zu Kindern</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-serif mb-4 text-content">Hinweis zu Kindern</h2>
+          <p className="text-content-secondary max-w-2xl mx-auto">
             Auch wenn wir Ihre Kleinen sehr lieben, haben wir uns für eine Feier nur für Erwachsene entschieden. 
             Um Ihnen die Organisation zu erleichtern, haben wir eine Liste vertrauenswürdiger Kinderbetreuungsdienste 
             und familienfreundlicher Aktivitäten in der Umgebung zusammengestellt.
@@ -55,7 +55,7 @@ const FamilyGuide = () => {
         </motion.div>
 
         <div className="mb-16">
-          <h2 className="text-3xl font-serif text-center mb-12 text-gray-100">Empfohlene Kinderbetreuung</h2>
+          <h2 className="text-3xl font-serif text-center mb-12 text-content">Empfohlene Kinderbetreuung</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {childcareServices.map((service, index) => (
               <motion.div
@@ -68,20 +68,20 @@ const FamilyGuide = () => {
               >
                 <div className="flex items-center gap-2 mb-4">
                   <Star className="w-5 h-5 text-yellow-400" />
-                  <span className="font-medium text-gray-300">{service.rating}</span>
+                  <span className="font-medium text-content">{service.rating}</span>
                 </div>
-                <h3 className="text-xl font-serif mb-2 text-gray-100">{service.name}</h3>
-                <p className="text-gray-300 mb-4">{service.description}</p>
+                <h3 className="text-xl font-serif mb-2 text-content">{service.name}</h3>
+                <p className="text-content-secondary mb-4">{service.description}</p>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-gray-300" />
-                    <a href={`tel:${service.phone}`} className="text-gray-300 hover:text-gray-100">
+                    <Phone className="w-4 h-4 text-primary" />
+                    <a href={`tel:${service.phone}`} className="text-content-secondary hover:text-content">
                       {service.phone}
                     </a>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-gray-300" />
-                    <span className="text-gray-300">{service.address}</span>
+                    <MapPin className="w-4 h-4 text-primary" />
+                    <span className="text-content-secondary">{service.address}</span>
                   </div>
                 </div>
               </motion.div>
@@ -98,10 +98,10 @@ const FamilyGuide = () => {
             className="touch-card"
           >
             <div className="flex items-center gap-3 mb-4">
-              <Shield className="w-6 h-6 text-gray-300" />
-              <h3 className="text-xl font-serif text-gray-100">Sicherheit geht vor</h3>
+              <Shield className="w-6 h-6 text-primary" />
+              <h3 className="text-xl font-serif text-content">Sicherheit geht vor</h3>
             </div>
-            <p className="text-gray-300">
+            <p className="text-content-secondary">
               Alle empfohlenen Betreuungsdienste sind lizenziert, versichert und führen
               gründliche Hintergrundüberprüfungen ihrer Mitarbeiter durch. Sie befolgen
               außerdem strenge Gesundheits- und Sicherheitsprotokolle.
@@ -116,10 +116,10 @@ const FamilyGuide = () => {
             className="touch-card"
           >
             <div className="flex items-center gap-3 mb-4">
-              <Clock className="w-6 h-6 text-gray-300" />
-              <h3 className="text-xl font-serif text-gray-100">Buchungszeitplan</h3>
+              <Clock className="w-6 h-6 text-primary" />
+              <h3 className="text-xl font-serif text-content">Buchungszeitplan</h3>
             </div>
-            <p className="text-gray-300">
+            <p className="text-content-secondary">
               Wir empfehlen, die Kinderbetreuung mindestens 6-8 Wochen vor dem
               Hochzeitstermin zu buchen, um die Verfügbarkeit zu gewährleisten. Die
               meisten Dienste benötigen eine Anzahlung zur Reservierung.
@@ -128,12 +128,12 @@ const FamilyGuide = () => {
         </div>
 
         <div className="text-center">
-          <h2 className="text-3xl font-serif mb-8 text-gray-100">Familienfreundliche Aktivitäten</h2>
-          <p className="text-gray-300 mb-6">
+          <h2 className="text-3xl font-serif mb-8 text-content">Familienfreundliche Aktivitäten</h2>
+          <p className="text-content-secondary mb-6">
             Planen Sie einen längeren Aufenthalt? Hier sind einige nahegelegene
             Attraktionen für Familien:
           </p>
-          <ul className="text-gray-300 space-y-2">
+          <ul className="text-content-secondary space-y-2">
             <li>Kurpark - 0,5 km entfernt</li>
             <li>Nerobergbahn - 1,2 km</li>
             <li>Spielpark Wiesbaden - 0,3 km</li>

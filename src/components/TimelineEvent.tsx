@@ -19,15 +19,15 @@ const TimelineEvent = ({ time, title, description, index }: TimelineEventProps) 
       className="flex gap-4 md:gap-8"
     >
       <div className="flex flex-col items-center">
-        <div className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full bg-primary text-cream flex items-center justify-center">
           <Clock className="w-6 h-6" />
         </div>
-        <div className="flex-1 w-px bg-white/10 my-2" />
+        <div className="flex-1 w-px bg-black/10 my-2" />
       </div>
       <div className="pb-8">
-        <div className="text-lg font-medium mb-1 text-white">{time}</div>
-        <h3 className="text-xl font-serif mb-2 text-white">{title}</h3>
-        <p className="text-gray-300">{description}</p>
+        <div className="text-lg font-medium mb-1 text-primary">{time}</div>
+        <h3 className="text-xl font-serif mb-2 text-primary">{title}</h3>
+        <p className="text-secondary">{description}</p>
       </div>
     </motion.div>
   );

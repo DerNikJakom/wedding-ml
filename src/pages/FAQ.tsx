@@ -64,10 +64,10 @@ const FAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="border-b border-white/10 pb-8"
+              className="border-b border-black/10 pb-8"
             >
-              <h3 className="text-xl font-serif mb-4 text-white">{faq.question}</h3>
-              <p className="text-content leading-relaxed">{faq.answer}</p>
+              <h3 className="text-xl font-serif mb-4 text-content">{faq.question}</h3>
+              <p className="text-content-secondary leading-relaxed">{faq.answer}</p>
             </motion.div>
           ))}
         </div>
@@ -79,12 +79,12 @@ const FAQ = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <h2 className="text-2xl font-serif mb-4">Noch Fragen?</h2>
-          <p className="text-content">
+          <h2 className="text-2xl font-serif mb-4 text-content">Noch Fragen?</h2>
+          <p className="text-content-secondary">
             Kontaktieren Sie uns gerne unter{' '}
             <a
               href="mailto:laura.michael.wedding@example.com"
-              className="text-white hover:underline"
+              className="text-primary hover:text-accent underline"
             >
               laura.michael.wedding@example.com
             </a>

@@ -47,7 +47,7 @@ const Accommodations = () => {
 
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-16">
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-content-secondary max-w-2xl mx-auto">
             Wir haben für unsere Hochzeitsgäste Sonderkonditionen in diesen ausgewählten Hotels vereinbart.
             Bitte erwähnen Sie bei der Buchung "Hochzeit Laura & Michael", um den vergünstigten Tarif zu erhalten.
             Buchen Sie frühzeitig, da die Zimmerkontingente begrenzt sind.
@@ -73,34 +73,34 @@ const Accommodations = () => {
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-serif text-gray-100">{hotel.name}</h3>
-                  <span className="text-gray-300">{hotel.price}</span>
+                  <h3 className="text-xl font-serif text-content">{hotel.name}</h3>
+                  <span className="text-content-secondary">{hotel.price}</span>
                 </div>
-                <p className="text-gray-300 mb-4">{hotel.description}</p>
+                <p className="text-content-secondary mb-4">{hotel.description}</p>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-start gap-2">
-                    <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-gray-300" />
+                    <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-primary" />
                     <div>
-                      <p className="text-gray-300">{hotel.address}</p>
-                      <p className="text-gray-400 mt-1">{hotel.distance}</p>
+                      <p className="text-content-secondary">{hotel.address}</p>
+                      <p className="text-content-muted mt-1">{hotel.distance}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 flex-shrink-0 text-gray-300" />
+                    <Phone className="w-4 h-4 flex-shrink-0 text-primary" />
                     <a
                       href={`tel:${hotel.phone}`}
-                      className="text-gray-300 hover:text-gray-100 transition-colors"
+                      className="text-content-secondary hover:text-content transition-colors"
                     >
                       {hotel.phone}
                     </a>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Globe className="w-4 h-4 flex-shrink-0 text-gray-300" />
+                    <Globe className="w-4 h-4 flex-shrink-0 text-primary" />
                     <a
                       href={hotel.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-gray-100 transition-colors"
+                      className="text-content-secondary hover:text-content transition-colors"
                     >
                       Online buchen
                     </a>
@@ -112,8 +112,8 @@ const Accommodations = () => {
         </div>
 
         <div className="mt-16 touch-card text-center">
-          <h2 className="text-2xl font-serif mb-4 text-gray-100">Transport</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-2xl font-serif mb-4 text-content">Transport</h2>
+          <p className="text-content-secondary max-w-2xl mx-auto">
             Alle empfohlenen Hotels befinden sich in Gehweite zum Veranstaltungsort.
             Für diejenigen, die nicht zu Fuß gehen möchten, stellen wir einen Shuttle-Service
             zwischen den Hotels und dem Veranstaltungsort vor und nach der Zeremonie zur Verfügung.

@@ -12,6 +12,7 @@ const Accommodations = React.lazy(() => import('./pages/Accommodations'));
 const FAQ = React.lazy(() => import('./pages/FAQ'));
 const FamilyGuide = React.lazy(() => import('./pages/FamilyGuide'));
 const DressCode = React.lazy(() => import('./pages/DressCode'));
+const Contact = React.lazy(() => import('./pages/Contact'));
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/family-guide" element={<FamilyGuide />} />
               <Route path="/dress-code" element={<DressCode />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </Suspense>
         </main>

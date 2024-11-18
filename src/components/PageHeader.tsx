@@ -19,7 +19,7 @@ const PageHeader = ({ title, subtitle, image }: PageHeaderProps) => {
           <div className="absolute inset-0 bg-black bg-opacity-50" />
         </>
       ) : (
-        <div className="absolute inset-0 bg-gray-100" />
+        <div className="absolute inset-0 bg-black/5" />
       )}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -27,11 +27,11 @@ const PageHeader = ({ title, subtitle, image }: PageHeaderProps) => {
         transition={{ duration: 0.5 }}
         className="relative h-full flex flex-col items-center justify-center text-center px-4"
       >
-        <h1 className={`section-title mb-2 ${image ? 'text-white' : 'text-black'}`}>
+        <h1 className={`section-title mb-2 ${image ? 'text-cream' : 'text-primary'}`}>
           {title}
         </h1>
         {subtitle && (
-          <p className={`text-lg ${image ? 'text-gray-200' : 'text-gray-600'}`}>
+          <p className={`text-lg ${image ? 'text-cream/90' : 'text-secondary'}`}>
             {subtitle}
           </p>
         )}

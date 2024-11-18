@@ -14,12 +14,13 @@ export default {
         'screen-90': '90vh',
       },
       colors: {
+        cream: '#faf7f2',
         primary: '#1a1a1a',
-        secondary: '#f5f5f5',
+        secondary: '#2d2d2d',
         accent: {
-          light: '#e5e5e5',
-          DEFAULT: '#a3a3a3',
-          dark: '#404040',
+          light: '#2d2d2d',
+          DEFAULT: '#4a4a4a',
+          dark: '#1a1a1a',
         },
       },
     },

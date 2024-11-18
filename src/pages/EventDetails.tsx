@@ -44,7 +44,7 @@ const EventDetails = () => {
         {/* Locations Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="space-y-4">
-            <h2 className="text-2xl font-serif text-white">Trauung</h2>
+            <h2 className="text-2xl font-serif text-content">Trauung</h2>
             <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1601921721860-cd27f501a9ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -53,15 +53,15 @@ const EventDetails = () => {
               />
             </div>
             <div className="flex items-start gap-2">
-              <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-white" />
+              <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-primary" />
               <div>
-                <p className="font-medium text-white">Ringkirche Wiesbaden</p>
-                <p className="text-gray-300">Kaiser-Friedrich-Ring 7, 65185 Wiesbaden</p>
+                <p className="font-medium text-content">Ringkirche Wiesbaden</p>
+                <p className="text-content-secondary">Kaiser-Friedrich-Ring 7, 65185 Wiesbaden</p>
                 <a 
                   href="https://maps.google.com/?q=Ringkirche+Wiesbaden+Kaiser-Friedrich-Ring+7+65185+Wiesbaden" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white mt-2 inline-block"
+                  className="text-content-secondary hover:text-content mt-2 inline-block"
                 >
                   In Google Maps öffnen →
                 </a>
@@ -70,7 +70,7 @@ const EventDetails = () => {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-2xl font-serif text-white">Feier</h2>
+            <h2 className="text-2xl font-serif text-content">Feier</h2>
             <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -79,15 +79,15 @@ const EventDetails = () => {
               />
             </div>
             <div className="flex items-start gap-2">
-              <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-white" />
+              <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-primary" />
               <div>
-                <p className="font-medium text-white">Casino Gesellschaft Wiesbaden</p>
-                <p className="text-gray-300">Friedrichstraße 22, 65185 Wiesbaden</p>
+                <p className="font-medium text-content">Casino Gesellschaft Wiesbaden</p>
+                <p className="text-content-secondary">Friedrichstraße 22, 65185 Wiesbaden</p>
                 <a 
                   href="https://maps.google.com/?q=Casino+Gesellschaft+Wiesbaden+Friedrichstraße+22+65185+Wiesbaden" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white mt-2 inline-block"
+                  className="text-content-secondary hover:text-content mt-2 inline-block"
                 >
                   In Google Maps öffnen →
                 </a>
@@ -98,7 +98,7 @@ const EventDetails = () => {
 
         {/* Timeline Section */}
         <div className="mb-16">
-          <h2 className="text-3xl font-serif text-center mb-12 text-white">Ablauf</h2>
+          <h2 className="text-3xl font-serif text-center mb-12 text-content">Ablauf</h2>
           <div className="max-w-2xl mx-auto">
             {timeline.map((event, index) => (
               <TimelineEvent
@@ -114,10 +114,14 @@ const EventDetails = () => {
 
         {/* Dress Code Section */}
         <div className="text-center">
-          <h2 className="text-3xl font-serif mb-4 text-white">Kleiderordnung</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-serif mb-4 text-content">Kleiderordnung</h2>
+          <p className="text-content-secondary max-w-2xl mx-auto">
             Black Tie. Wir bitten unsere Gäste, sich formal zu kleiden.
-            Weitere Details finden Sie auf der <a href="/dress-code" className="underline hover:text-white">Kleiderordnung</a> Seite.
+            Weitere Details finden Sie auf der{' '}
+            <a href="/dress-code" className="underline hover:text-content">
+              Kleiderordnung
+            </a>{' '}
+            Seite.
           </p>
         </div>
       </div>

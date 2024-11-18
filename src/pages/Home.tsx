@@ -74,11 +74,12 @@ const Home = () => {
           backgroundImage: 'url("https://lh3.googleusercontent.com/d/1IIgj3Mb_uURNRqBCu063t0fpmwVqLcBn")',
         }}
       >
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-center text-white z-10"
+          className="text-center text-cream z-10"
         >
           <h1 className="font-serif text-6xl md:text-8xl mb-4">Laura & Michael</h1>
           <p className="text-xl md:text-2xl mb-8">Wir heiraten</p>
@@ -105,8 +106,8 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-serif text-4xl mb-6 text-white">Willkommen zu unserer Hochzeit</h2>
-            <p className="text-gray-300 mb-8 leading-relaxed">
+            <h2 className="font-serif text-4xl mb-6 text-content">Willkommen zu unserer Hochzeit</h2>
+            <p className="text-content-secondary mb-8 leading-relaxed">
               Wir freuen uns darauf, unseren besonderen Tag mit unserer Familie und unseren Freunden zu feiern. 
               Begleitet uns zu einem Abend voller Liebe, Lachen und unvergesslicher Momente.
             </p>
@@ -118,7 +119,7 @@ const Home = () => {
       </section>
 
       {/* Countdown Section */}
-      <section className="bg-black/30 py-20 px-4">
+      <section className="bg-black/5 py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -134,8 +135,8 @@ const Home = () => {
               { label: 'Sekunden', value: timeLeft.seconds },
             ].map((item) => (
               <div key={item.label}>
-                <div className="font-serif text-4xl mb-2 text-white">{item.value}</div>
-                <div className="text-gray-300">{item.label}</div>
+                <div className="font-serif text-4xl mb-2 text-content">{item.value}</div>
+                <div className="text-content-secondary">{item.label}</div>
               </div>
             ))}
           </motion.div>
@@ -152,8 +153,8 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="font-serif text-4xl mb-6 text-white">Unsere Momente</h2>
-            <p className="text-gray-300">Einige besondere Augenblicke aus unserer gemeinsamen Zeit</p>
+            <h2 className="font-serif text-4xl mb-6 text-content">Unsere Momente</h2>
+            <p className="text-content-secondary">Einige besondere Augenblicke aus unserer gemeinsamen Zeit</p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -173,7 +174,7 @@ const Home = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
-                  <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg">
+                  <p className="text-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg">
                     {photo.alt}
                   </p>
                 </div>

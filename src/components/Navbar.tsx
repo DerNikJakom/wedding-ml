@@ -17,6 +17,7 @@ const Navbar = () => {
     { path: '/dress-code', label: 'Kleidung' },
     { path: '/details', label: 'Details' },
     { path: '/accommodations', label: 'Unterkunft' },
+    { path: '/contact', label: 'Kontakt' },
     { path: '/faq', label: 'FAQ' },
     { path: '/family-guide', label: 'Familie' },
   ];
@@ -54,11 +55,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-black/95 backdrop-blur-sm border-b border-white/10 z-50">
+    <nav className="fixed top-0 left-0 right-0 bg-cream/95 backdrop-blur-sm border-b border-black/10 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <NavLink to="/" className="font-serif text-xl flex items-center gap-2 text-white">
+            <NavLink to="/" className="font-serif text-xl flex items-center gap-2 text-primary">
               <Heart className="w-4 h-4" />
               <span>L & M</span>
             </NavLink>
@@ -81,7 +82,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white p-2"
+              className="text-primary hover:text-accent p-2"
               aria-label="Menü öffnen"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -94,14 +95,14 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed inset-0 top-16 bg-black/85 backdrop-blur-sm z-40"
+            className="md:hidden fixed inset-0 top-16 bg-cream/95 backdrop-blur-sm z-40"
             initial="closed"
             animate="open"
             exit="closed"
             variants={menuVariants}
           >
             <motion.div 
-              className="bg-black/85 backdrop-blur-sm mx-4 mt-4 rounded-lg border border-white/10 overflow-hidden"
+              className="bg-white/95 backdrop-blur-sm mx-4 mt-4 rounded-lg border border-black/10 overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -119,7 +120,7 @@ const Navbar = () => {
                       to={item.path}
                       className={({ isActive }) =>
                         `block py-3 px-6 text-lg ${
-                          isActive ? 'text-white font-medium bg-white/10' : 'text-gray-300 hover:bg-white/5'
+                          isActive ? 'text-primary font-medium bg-black/5' : 'text-accent hover:bg-black/5'
                         }`
                       }
                       onClick={() => setIsOpen(false)}

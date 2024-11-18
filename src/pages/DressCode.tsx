@@ -28,10 +28,10 @@ const DressCode = () => {
           className="text-center mb-16"
         >
           <div className="flex justify-center mb-6">
-            <ShirtIcon className="w-12 h-12 text-white" />
+            <ShirtIcon className="w-12 h-12 text-primary" />
           </div>
-          <h2 className="text-3xl font-serif mb-4">Dresscode: Black Tie</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-serif mb-4 text-content">Dresscode: Black Tie</h2>
+          <p className="text-content-secondary max-w-2xl mx-auto">
             Wir bitten unsere Gäste, sich an den Black-Tie-Dresscode zu halten. Dies bedeutet formelle Abendgarderobe,
             die der Bedeutung dieses besonderen Anlasses entspricht.
           </p>
@@ -45,8 +45,8 @@ const DressCode = () => {
             viewport={{ once: true }}
             className="touch-card"
           >
-            <h3 className="text-xl font-serif mb-4">Für die Herren</h3>
-            <ul className="space-y-2 text-gray-300">
+            <h3 className="text-xl font-serif mb-4 text-content">Für die Herren</h3>
+            <ul className="space-y-2 text-content-secondary">
               <li>• Smoking oder schwarzer Anzug</li>
               <li>• Weißes Smokinghemd</li>
               <li>• Schwarze Fliege</li>
@@ -63,8 +63,8 @@ const DressCode = () => {
             viewport={{ once: true }}
             className="touch-card"
           >
-            <h3 className="text-xl font-serif mb-4">Für die Damen</h3>
-            <ul className="space-y-2 text-gray-300">
+            <h3 className="text-xl font-serif mb-4 text-content">Für die Damen</h3>
+            <ul className="space-y-2 text-content-secondary">
               <li>• Bodenlanges Abendkleid</li>
               <li>• Elegantes Cocktailkleid</li>
               <li>• Hochwertige Materialien wie Seide, Samt oder Chiffon</li>
@@ -83,14 +83,14 @@ const DressCode = () => {
           className="mb-16"
         >
           <div className="flex items-center justify-center gap-2 mb-6">
-            <Palette className="w-5 h-5 text-white" />
-            <h3 className="text-xl font-serif">Hochzeitsfarben</h3>
+            <Palette className="w-5 h-5 text-primary" />
+            <h3 className="text-xl font-serif text-content">Hochzeitsfarben</h3>
           </div>
           <div className="flex justify-center gap-4">
             {colorPalette.map(({ color, label }) => (
               <div key={label} className="text-center">
-                <div className={`w-16 h-16 rounded-full ${color} mb-2 border border-white/10`}></div>
-                <span className="text-sm text-gray-300">{label}</span>
+                <div className={`w-16 h-16 rounded-full ${color} mb-2 border border-black/10`}></div>
+                <span className="text-sm text-content-secondary">{label}</span>
               </div>
             ))}
           </div>
@@ -104,10 +104,10 @@ const DressCode = () => {
           className="text-center"
         >
           <div className="flex justify-center mb-6">
-            <Sparkles className="w-5 h-5 text-white" />
+            <Sparkles className="w-5 h-5 text-primary" />
           </div>
-          <h3 className="text-xl font-serif mb-4">Zusätzliche Hinweise</h3>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <h3 className="text-xl font-serif mb-4 text-content">Zusätzliche Hinweise</h3>
+          <p className="text-content-secondary max-w-2xl mx-auto">
             Die Feier findet hauptsächlich in klimatisierten Innenräumen statt. 
             Bitte beachten Sie, dass wir eine formelle Abendveranstaltung planen, 
             bei der die Garderobe der Festlichkeit des Anlasses entsprechen sollte.
