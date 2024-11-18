@@ -1,11 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/heart.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <meta name="theme-color" content="#ffffff" />
-    <meta name="description" content="Feiert mit uns die Hochzeit von Laura & Michael am 08. Februar 2025 in Wiesbaden" />
+    <meta
+      name="description"
+      content="Feiert mit uns die Hochzeit von Laura & Michael am 08. Februar 2025 in Wiesbaden"
+    />
     <link rel="apple-touch-icon" href="/heart.png" />
     <title>Laura & Michael Hochzeit</title>
     <link
@@ -15,6 +21,19 @@
     />
   </head>
   <body>
+    <!-- Hidden Netlify Form -->
+    <form name="rsvp" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <select name="attending"></select>
+      <select name="guests"></select>
+      <select name="menu"></select>
+      <textarea name="dietary"></textarea>
+      <select name="accommodation"></select>
+      <input type="text" name="song" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
