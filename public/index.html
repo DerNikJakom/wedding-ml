@@ -15,6 +15,19 @@
     />
   </head>
   <body>
+    <!-- Hidden Netlify Form -->
+    <form name="rsvp" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <select name="attending"></select>
+      <select name="guests"></select>
+      <select name="menu"></select>
+      <textarea name="dietary"></textarea>
+      <select name="accommodation"></select>
+      <input type="text" name="song" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

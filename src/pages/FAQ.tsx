@@ -1,7 +1,52 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { HelpCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HelpCircle, ChevronDown } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
+
+interface FAQItemProps {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  index: number;
+}
+
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle, index }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="border-b border-black/10 pb-4"
+    >
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between py-4 text-left focus:outline-none group"
+      >
+        <h3 className="text-xl font-serif text-content pr-8">{question}</h3>
+        <ChevronDown 
+          className={`w-6 h-6 text-content transition-transform duration-200 ${
+            isOpen ? 'transform rotate-180' : ''
+          }`}
+        />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <p className="text-content-secondary pb-4 leading-relaxed">{answer}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
 
 const faqs = [
   {
@@ -47,6 +92,12 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <div>
       <PageHeader
@@ -72,19 +123,16 @@ const FAQ = () => {
           </p>
         </motion.div>
 
-        <div className="space-y-8">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <motion.div
+            <FAQItem
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="border-b border-black/10 pb-8"
-            >
-              <h3 className="text-xl font-serif mb-4 text-content">{faq.question}</h3>
-              <p className="text-content-secondary leading-relaxed">{faq.answer}</p>
-            </motion.div>
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={openIndex === index}
+              onToggle={() => handleToggle(index)}
+              index={index}
+            />
           ))}
         </div>
 
@@ -93,7 +141,7 @@ const FAQ = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="text-center mt-16"
         >
           <h2 className="text-2xl font-serif mb-4 text-content">Noch Fragen?</h2>
           <p className="text-content-secondary">
