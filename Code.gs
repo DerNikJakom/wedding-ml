@@ -1,22 +1,40 @@
 function doPost(e) {
-  // CORS-Header für die Entwicklungsumgebung
   var headers = {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST',
-    'Access-Control-Allow-Headers': 'Content-Type'
+    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Accept',
+    'Access-Control-Max-Age': '86400'
   };
 
-  if (e.postData.contents) {
+  // Handle OPTIONS request (CORS preflight)
+  if (e.parameter && e.parameter.method === 'OPTIONS') {
+    return ContentService.createTextOutput('')
+      .setMimeType(ContentService.MimeType.TEXT)
+      .setHeaders(headers);
+  }
+
+  if (e.postData && e.postData.contents) {
     try {
-      // Parse die eingehenden Daten
       var data = JSON.parse(e.postData.contents);
-      
-      // Öffne das Google Sheet (IHRE_SHEET_ID durch die tatsächliche ID ersetzen)
       var sheet = SpreadsheetApp.openById("IHRE_SHEET_ID").getActiveSheet();
       
-      // Füge eine neue Zeile mit den Formulardaten hinzu
+      // Wenn das Sheet leer ist, füge die Spaltenüberschriften hinzu
+      if (sheet.getLastRow() === 0) {
+        sheet.appendRow([
+          'Zeitstempel',
+          'Name',
+          'E-Mail',
+          'Teilnahme',
+          'Anzahl Gäste',
+          'Menüauswahl',
+          'Unverträglichkeiten',
+          'Musikwunsch'
+        ]);
+      }
+      
+      // Füge die Daten in der gleichen Reihenfolge wie die Überschriften hinzu
       sheet.appendRow([
-        new Date(), // Zeitstempel
+        new Date(),
         data.name,
         data.email,
         data.attending,
@@ -26,32 +44,39 @@ function doPost(e) {
         data.songRequest
       ]);
 
-      // Erfolgreiche Antwort
-      return ContentService.createTextOutput(JSON.stringify({ status: "success" }))
+      return ContentService.createTextOutput(JSON.stringify({
+        status: "success",
+        message: "Daten erfolgreich gespeichert"
+      }))
         .setMimeType(ContentService.MimeType.JSON)
         .setHeaders(headers);
 
     } catch (error) {
-      // Fehlerantwort
-      return ContentService.createTextOutput(JSON.stringify({ 
-        status: "error", 
-        message: error.toString() 
+      return ContentService.createTextOutput(JSON.stringify({
+        status: "error",
+        message: error.toString()
       }))
         .setMimeType(ContentService.MimeType.JSON)
         .setHeaders(headers);
     }
   }
 
-  // OPTIONS request - CORS preflight
-  return ContentService.createTextOutput("")
-    .setMimeType(ContentService.MimeType.TEXT)
+  return ContentService.createTextOutput(JSON.stringify({
+    status: "error",
+    message: "Ungültige Anfrage"
+  }))
+    .setMimeType(ContentService.MimeType.JSON)
     .setHeaders(headers);
 }
 
 function doGet(e) {
+  var headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Accept'
+  };
+
   return ContentService.createTextOutput("Der Service ist aktiv")
     .setMimeType(ContentService.MimeType.TEXT)
-    .setHeaders({
-      'Access-Control-Allow-Origin': '*'
-    });
+    .setHeaders(headers);
 }

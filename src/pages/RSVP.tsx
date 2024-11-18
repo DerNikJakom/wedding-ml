@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
-import axios from 'axios';
 import { Check, AlertCircle } from 'lucide-react';
 
 type FormData = {
@@ -17,6 +16,7 @@ type FormData = {
 const RSVP = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const {
     register,
@@ -27,20 +27,36 @@ const RSVP = () => {
 
   const attending = watch('attending');
 
+  const encode = (data: any) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
+    setErrorMessage('');
 
     try {
-      const response = await axios.post('https://script.google.com/macros/s/AKfycbyPXNM0P-FpI1or8G3QHInqCh9b8hNoKuox2L5WYVFFOnkWQ6Vg3YeYjtrZwcqTfZaWQQ/exec', data);
-      
-      if (response.status === 200) {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "wedding-rsvp",
+          ...data
+        })
+      });
+
+      if (response.ok) {
         setSubmitStatus('success');
       } else {
-        setSubmitStatus('error');
+        throw new Error('Netzwerkfehler');
       }
     } catch (error) {
       setSubmitStatus('error');
+      setErrorMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+      console.error('RSVP Error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -75,13 +91,25 @@ const RSVP = () => {
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="touch-card space-y-6"
+              data-netlify="true"
+              name="wedding-rsvp"
+              method="POST"
+              netlify-honeypot="bot-field"
             >
+              <input type="hidden" name="form-name" value="wedding-rsvp" />
+              <p className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
+
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
                 <input
                   {...register('name', { required: 'Name wird benötigt' })}
                   className="input-field"
                   placeholder="Ihr vollständiger Name"
+                  name="name"
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
@@ -101,6 +129,7 @@ const RSVP = () => {
                   })}
                   className="input-field"
                   placeholder="ihre@email.de"
+                  name="email"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -114,6 +143,7 @@ const RSVP = () => {
                 <select
                   {...register('attending', { required: 'Bitte wählen Sie eine Option' })}
                   className="input-field"
+                  name="attending"
                 >
                   <option value="">Bitte wählen...</option>
                   <option value="yes">Ja, ich nehme gerne teil</option>
@@ -140,6 +170,7 @@ const RSVP = () => {
                         max: { value: 2, message: 'Maximal 2 Gäste' },
                       })}
                       className="input-field"
+                      name="guests"
                     />
                     {errors.guests && (
                       <p className="text-red-500 text-sm mt-1">
@@ -157,6 +188,7 @@ const RSVP = () => {
                         required: 'Bitte wählen Sie ein Menü',
                       })}
                       className="input-field"
+                      name="mealPreference"
                     >
                       <option value="">Bitte wählen...</option>
                       <option value="beef">Rinderfilet</option>
@@ -179,6 +211,7 @@ const RSVP = () => {
                       {...register('dietaryRestrictions')}
                       className="input-field h-24 resize-none"
                       placeholder="Bitte geben Sie etwaige Allergien oder Unverträglichkeiten an..."
+                      name="dietaryRestrictions"
                     />
                   </div>
 
@@ -190,6 +223,7 @@ const RSVP = () => {
                       {...register('songRequest')}
                       className="input-field"
                       placeholder="Welches Lied bringt Sie zum Tanzen?"
+                      name="songRequest"
                     />
                   </div>
                 </>
@@ -206,7 +240,7 @@ const RSVP = () => {
               {submitStatus === 'error' && (
                 <div className="flex items-center gap-2 text-red-500 mt-4">
                   <AlertCircle className="w-5 h-5" />
-                  <span>Es gab einen Fehler bei der Übermittlung. Bitte versuchen Sie es erneut.</span>
+                  <span>{errorMessage || 'Es gab einen Fehler bei der Übermittlung. Bitte versuchen Sie es erneut.'}</span>
                 </div>
               )}
             </form>
