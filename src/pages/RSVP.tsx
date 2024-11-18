@@ -13,12 +13,6 @@ type FormData = {
   songRequest: string;
 };
 
-const encode = (data: { [key: string]: any }) => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-}
-
 const RSVP = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
@@ -39,13 +33,15 @@ const RSVP = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "wedding-rsvp",
-          ...data
-        })
+      const formData = new FormData();
+      Object.entries(data).forEach(([key, value]) => {
+        formData.append(key, value?.toString() || '');
+      });
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
       });
 
       if (response.ok) {
@@ -91,17 +87,17 @@ const RSVP = () => {
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="touch-card space-y-6"
+              data-netlify="true"
               name="wedding-rsvp"
               method="POST"
-              data-netlify="true"
               netlify-honeypot="bot-field"
             >
               <input type="hidden" name="form-name" value="wedding-rsvp" />
-              <div className="hidden">
+              <p className="hidden">
                 <label>
                   Don't fill this out if you're human: <input name="bot-field" />
                 </label>
-              </div>
+              </p>
 
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
