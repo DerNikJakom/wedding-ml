@@ -12,14 +12,13 @@ const Navbar = () => {
   }, [location]);
 
   const navItems = [
-    { path: '/', label: 'Start' },
     { path: '/rsvp', label: 'Zusagen' },
-    { path: '/dress-code', label: 'Kleidung' },
     { path: '/details', label: 'Details' },
+    { path: '/dress-code', label: 'Kleidung' },
     { path: '/accommodations', label: 'Unterkunft' },
-    { path: '/contact', label: 'Kontakt' },
     { path: '/faq', label: 'FAQ' },
     { path: '/family-guide', label: 'Familie' },
+    { path: '/contact', label: 'Kontakt' },
   ];
 
   const menuVariants = {

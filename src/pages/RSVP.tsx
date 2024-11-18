@@ -1,240 +1,222 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { motion } from 'framer-motion';
-import { Check, AlertCircle } from 'lucide-react';
-
-type FormData = {
-  name: string;
-  email: string;
-  attending: string;
-  guests: number;
-  mealPreference: string;
-  dietaryRestrictions: string;
-  songRequest: string;
-};
+import { motion, AnimatePresence } from 'framer-motion';
+import PageHeader from '../components/PageHeader';
 
 const RSVP = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<FormData>();
-
-  const attending = watch('attending');
-
-  const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-    setErrorMessage('');
-
-    try {
-      const formData = new FormData();
-      Object.entries(data).forEach(([key, value]) => {
-        formData.append(key, value.toString());
-      });
-
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Fehler ${response.status}: ${response.statusText}`);
-      }
-
-      setSubmitStatus('success');
-    } catch (error) {
-      console.error('RSVP Error:', error);
-      setSubmitStatus('error');
-      setErrorMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const [isAttending, setIsAttending] = useState<string>('');
 
   return (
-    <div className="min-h-screen py-20 px-4 mt-16">
-      <div className="max-w-2xl mx-auto">
+    <div>
+      <PageHeader
+        title="Zusage"
+        subtitle="Wir freuen uns auf Ihre Antwort"
+        image="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+      />
+
+      <div className="max-w-2xl mx-auto px-4 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="section-title">Zusage</h1>
           <p className="text-center text-content-secondary mb-12">
             Bitte antworten Sie bis zum 08. Januar 2025
           </p>
 
-          {submitStatus === 'success' ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="touch-card text-center"
-            >
-              <Check className="w-16 h-16 mx-auto mb-4 text-green-500" />
-              <h2 className="text-2xl font-serif mb-4 text-content">Vielen Dank!</h2>
-              <p className="text-content-secondary">
-                Ihre Zusage wurde erfolgreich übermittelt. Wir freuen uns darauf, mit Ihnen zu feiern!
-              </p>
-            </motion.div>
-          ) : (
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              method="POST"
-              data-netlify="true"
-              name="wedding-rsvp"
-              className="touch-card space-y-6"
-            >
-              <input type="hidden" name="form-name" value="wedding-rsvp" />
+          <form 
+            name="rsvp"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            className="touch-card space-y-6"
+          >
+            {/* Netlify Form Detection */}
+            <input type="hidden" name="form-name" value="rsvp" />
+            <input type="hidden" name="bot-field" />
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Name</label>
-                <input
-                  {...register('name', { required: 'Name wird benötigt' })}
-                  name="name"
-                  className="input-field"
-                  placeholder="Ihr vollständiger Name"
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-                )}
-              </div>
+            {/* Name */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium mb-2 text-content">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                className="input-field"
+                placeholder="Ihr vollständiger Name"
+              />
+            </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">E-Mail</label>
-                <input
-                  type="email"
-                  {...register('email', {
-                    required: 'E-Mail wird benötigt',
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Ungültige E-Mail-Adresse',
-                    },
-                  })}
-                  name="email"
-                  className="input-field"
-                  placeholder="ihre@email.de"
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-                )}
-              </div>
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium mb-2 text-content">
+                E-Mail
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                className="input-field"
+                placeholder="ihre@email.de"
+              />
+            </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Werden Sie teilnehmen?
-                </label>
-                <select
-                  {...register('attending', { required: 'Bitte wählen Sie eine Option' })}
-                  name="attending"
-                  className="input-field"
+            {/* Teilnahme */}
+            <div>
+              <label htmlFor="attending" className="block text-sm font-medium mb-2 text-content">
+                Werden Sie teilnehmen?
+              </label>
+              <select
+                name="attending"
+                id="attending"
+                required
+                className="input-field"
+                value={isAttending}
+                onChange={(e) => setIsAttending(e.target.value)}
+              >
+                <option value="">Bitte wählen...</option>
+                <option value="yes">Ja, ich nehme gerne teil</option>
+                <option value="no">Leider kann ich nicht teilnehmen</option>
+              </select>
+            </div>
+
+            <AnimatePresence>
+              {isAttending === 'no' && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="space-y-6 overflow-hidden"
                 >
-                  <option value="">Bitte wählen...</option>
-                  <option value="yes">Ja, ich nehme gerne teil</option>
-                  <option value="no">Leider kann ich nicht teilnehmen</option>
-                </select>
-                {errors.attending && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.attending.message}
-                  </p>
-                )}
-              </div>
-
-              {attending === 'yes' && (
-                <>
+                  {/* Nachricht bei Absage */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Anzahl der Gäste
+                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-content">
+                      Möchten Sie uns noch etwas mitteilen?
                     </label>
-                    <input
-                      type="number"
-                      {...register('guests', {
-                        required: 'Anzahl der Gäste wird benötigt',
-                        min: { value: 1, message: 'Mindestens 1 Gast' },
-                        max: { value: 2, message: 'Maximal 2 Gäste' },
-                      })}
-                      name="guests"
+                    <textarea
+                      name="message"
+                      id="message"
+                      rows={4}
                       className="input-field"
+                      placeholder="Ihre Nachricht an uns..."
                     />
-                    {errors.guests && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.guests.message}
-                      </p>
-                    )}
+                  </div>
+                </motion.div>
+              )}
+
+              {isAttending === 'yes' && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="space-y-6 overflow-hidden"
+                >
+                  {/* Begleitung */}
+                  <div>
+                    <label htmlFor="guests" className="block text-sm font-medium mb-2 text-content">
+                      Anzahl der Personen (inkl. Ihrer Person)
+                    </label>
+                    <select
+                      name="guests"
+                      id="guests"
+                      required
+                      className="input-field"
+                    >
+                      <option value="1">1 Person</option>
+                      <option value="2">2 Personen</option>
+                    </select>
                   </div>
 
+                  {/* Menüauswahl */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label htmlFor="menu" className="block text-sm font-medium mb-2 text-content">
                       Menüauswahl
                     </label>
                     <select
-                      {...register('mealPreference', {
-                        required: 'Bitte wählen Sie ein Menü',
-                      })}
-                      name="mealPreference"
+                      name="menu"
+                      id="menu"
+                      required
                       className="input-field"
                     >
                       <option value="">Bitte wählen...</option>
-                      <option value="beef">Rinderfilet</option>
+                      <option value="meat">Rinderfilet</option>
                       <option value="fish">Lachs</option>
                       <option value="vegetarian">Vegetarisch</option>
                       <option value="vegan">Vegan</option>
                     </select>
-                    {errors.mealPreference && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.mealPreference.message}
-                      </p>
-                    )}
                   </div>
 
+                  {/* Unverträglichkeiten */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label htmlFor="dietary" className="block text-sm font-medium mb-2 text-content">
                       Allergien oder Unverträglichkeiten
                     </label>
                     <textarea
-                      {...register('dietaryRestrictions')}
-                      name="dietaryRestrictions"
-                      className="input-field h-24 resize-none"
+                      name="dietary"
+                      id="dietary"
+                      rows={3}
+                      className="input-field"
                       placeholder="Bitte geben Sie etwaige Allergien oder Unverträglichkeiten an..."
                     />
                   </div>
 
+                  {/* Übernachtung */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Musikwunsch
+                    <label htmlFor="accommodation" className="block text-sm font-medium mb-2 text-content">
+                      Benötigen Sie eine Hotelempfehlung?
+                    </label>
+                    <select
+                      name="accommodation"
+                      id="accommodation"
+                      required
+                      className="input-field"
+                    >
+                      <option value="no">Nein, danke</option>
+                      <option value="yes">Ja, bitte</option>
+                    </select>
+                  </div>
+
+                  {/* Musikwunsch */}
+                  <div>
+                    <label htmlFor="song" className="block text-sm font-medium mb-2 text-content">
+                      Ihr Musikwunsch für die Feier
                     </label>
                     <input
-                      {...register('songRequest')}
-                      name="songRequest"
+                      type="text"
+                      name="song"
+                      id="song"
                       className="input-field"
                       placeholder="Welches Lied bringt Sie zum Tanzen?"
                     />
                   </div>
-                </>
-              )}
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`btn-primary ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-              >
-                {isSubmitting ? 'Wird gesendet...' : 'Absenden'}
-              </button>
-
-              {submitStatus === 'error' && (
-                <div className="flex items-center gap-2 text-red-500 mt-4">
-                  <AlertCircle className="w-5 h-5" />
-                  <span>{errorMessage}</span>
-                </div>
+                  {/* Nachricht */}
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-content">
+                      Möchten Sie uns noch etwas mitteilen?
+                    </label>
+                    <textarea
+                      name="message"
+                      id="message"
+                      rows={4}
+                      className="input-field"
+                      placeholder="Ihre Nachricht an uns..."
+                    />
+                  </div>
+                </motion.div>
               )}
-            </form>
-          )}
+            </AnimatePresence>
+
+            <button
+              type="submit"
+              className="btn-primary w-full"
+            >
+              Zusage absenden
+            </button>
+          </form>
         </motion.div>
       </div>
     </div>
