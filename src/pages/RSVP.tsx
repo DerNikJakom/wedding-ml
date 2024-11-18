@@ -13,10 +13,16 @@ type FormData = {
   songRequest: string;
 };
 
+const encode = (data: { [key: string]: any }) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
 const RSVP = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
-  const [errorMessage, setErrorMessage] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const {
     register,
@@ -26,12 +32,6 @@ const RSVP = () => {
   } = useForm<FormData>();
 
   const attending = watch('attending');
-
-  const encode = (data: any) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -51,12 +51,12 @@ const RSVP = () => {
       if (response.ok) {
         setSubmitStatus('success');
       } else {
-        throw new Error('Netzwerkfehler');
+        throw new Error('Formular konnte nicht gesendet werden');
       }
     } catch (error) {
+      console.error('RSVP Error:', error);
       setSubmitStatus('error');
       setErrorMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
-      console.error('RSVP Error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -71,7 +71,7 @@ const RSVP = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="section-title">Zusage</h1>
-          <p className="text-center text-gray-400 mb-12">
+          <p className="text-center text-content-secondary mb-12">
             Bitte antworten Sie bis zum 08. Januar 2025
           </p>
 
@@ -82,8 +82,8 @@ const RSVP = () => {
               className="touch-card text-center"
             >
               <Check className="w-16 h-16 mx-auto mb-4 text-green-500" />
-              <h2 className="text-2xl font-serif mb-4">Vielen Dank!</h2>
-              <p className="text-gray-400">
+              <h2 className="text-2xl font-serif mb-4 text-content">Vielen Dank!</h2>
+              <p className="text-content-secondary">
                 Ihre Zusage wurde erfolgreich übermittelt. Wir freuen uns darauf, mit Ihnen zu feiern!
               </p>
             </motion.div>
@@ -91,25 +91,25 @@ const RSVP = () => {
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="touch-card space-y-6"
-              data-netlify="true"
               name="wedding-rsvp"
               method="POST"
+              data-netlify="true"
               netlify-honeypot="bot-field"
             >
               <input type="hidden" name="form-name" value="wedding-rsvp" />
-              <p className="hidden">
+              <div className="hidden">
                 <label>
                   Don't fill this out if you're human: <input name="bot-field" />
                 </label>
-              </p>
+              </div>
 
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
                 <input
                   {...register('name', { required: 'Name wird benötigt' })}
+                  name="name"
                   className="input-field"
                   placeholder="Ihr vollständiger Name"
-                  name="name"
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
@@ -127,9 +127,9 @@ const RSVP = () => {
                       message: 'Ungültige E-Mail-Adresse',
                     },
                   })}
+                  name="email"
                   className="input-field"
                   placeholder="ihre@email.de"
-                  name="email"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -142,8 +142,8 @@ const RSVP = () => {
                 </label>
                 <select
                   {...register('attending', { required: 'Bitte wählen Sie eine Option' })}
-                  className="input-field"
                   name="attending"
+                  className="input-field"
                 >
                   <option value="">Bitte wählen...</option>
                   <option value="yes">Ja, ich nehme gerne teil</option>
@@ -169,8 +169,8 @@ const RSVP = () => {
                         min: { value: 1, message: 'Mindestens 1 Gast' },
                         max: { value: 2, message: 'Maximal 2 Gäste' },
                       })}
-                      className="input-field"
                       name="guests"
+                      className="input-field"
                     />
                     {errors.guests && (
                       <p className="text-red-500 text-sm mt-1">
@@ -187,8 +187,8 @@ const RSVP = () => {
                       {...register('mealPreference', {
                         required: 'Bitte wählen Sie ein Menü',
                       })}
-                      className="input-field"
                       name="mealPreference"
+                      className="input-field"
                     >
                       <option value="">Bitte wählen...</option>
                       <option value="beef">Rinderfilet</option>
@@ -209,9 +209,9 @@ const RSVP = () => {
                     </label>
                     <textarea
                       {...register('dietaryRestrictions')}
+                      name="dietaryRestrictions"
                       className="input-field h-24 resize-none"
                       placeholder="Bitte geben Sie etwaige Allergien oder Unverträglichkeiten an..."
-                      name="dietaryRestrictions"
                     />
                   </div>
 
@@ -221,9 +221,9 @@ const RSVP = () => {
                     </label>
                     <input
                       {...register('songRequest')}
+                      name="songRequest"
                       className="input-field"
                       placeholder="Welches Lied bringt Sie zum Tanzen?"
-                      name="songRequest"
                     />
                   </div>
                 </>
@@ -240,7 +240,7 @@ const RSVP = () => {
               {submitStatus === 'error' && (
                 <div className="flex items-center gap-2 text-red-500 mt-4">
                   <AlertCircle className="w-5 h-5" />
-                  <span>{errorMessage || 'Es gab einen Fehler bei der Übermittlung. Bitte versuchen Sie es erneut.'}</span>
+                  <span>{errorMessage}</span>
                 </div>
               )}
             </form>
