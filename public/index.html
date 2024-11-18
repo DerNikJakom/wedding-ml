@@ -15,13 +15,13 @@
     />
   </head>
   <body>
-    <!-- Netlify Form Detection -->
-    <form name="wedding-rsvp" netlify netlify-honeypot="bot-field" hidden>
+    <!-- A hidden form for Netlify Forms -->
+    <form name="wedding-rsvp" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
-      <select name="attending"></select>
+      <select name="attending" />
       <input type="number" name="guests" />
-      <select name="mealPreference"></select>
+      <select name="mealPreference" />
       <textarea name="dietaryRestrictions"></textarea>
       <input type="text" name="songRequest" />
     </form>

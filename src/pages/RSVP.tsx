@@ -35,7 +35,7 @@ const RSVP = () => {
     try {
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) => {
-        formData.append(key, value?.toString() || '');
+        formData.append(key, value.toString());
       });
 
       const response = await fetch('/', {
@@ -44,11 +44,11 @@ const RSVP = () => {
         body: new URLSearchParams(formData as any).toString(),
       });
 
-      if (response.ok) {
-        setSubmitStatus('success');
-      } else {
-        throw new Error('Formular konnte nicht gesendet werden');
+      if (!response.ok) {
+        throw new Error(`Fehler ${response.status}: ${response.statusText}`);
       }
+
+      setSubmitStatus('success');
     } catch (error) {
       console.error('RSVP Error:', error);
       setSubmitStatus('error');
@@ -86,18 +86,12 @@ const RSVP = () => {
           ) : (
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="touch-card space-y-6"
+              method="POST"
               data-netlify="true"
               name="wedding-rsvp"
-              method="POST"
-              netlify-honeypot="bot-field"
+              className="touch-card space-y-6"
             >
               <input type="hidden" name="form-name" value="wedding-rsvp" />
-              <p className="hidden">
-                <label>
-                  Don't fill this out if you're human: <input name="bot-field" />
-                </label>
-              </p>
 
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
