@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Masonry from 'react-masonry-css';
 
 const calculateTimeLeft = () => {
   const weddingDate = new Date('2025-02-08T15:00:00').getTime();
@@ -31,28 +32,40 @@ const photos = [
   {
     url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Paar im Garten',
+    size: 'large'
   },
   {
-    url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     alt: 'Paar bei Sonnenuntergang',
+    size: 'small'
   },
   {
     url: 'https://images.unsplash.com/photo-1525258946800-98cfd641d0de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Spazierendes Paar',
+    size: 'medium'
   },
   {
-    url: 'https://images.unsplash.com/photo-1587271339318-2e5fb02e25b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    url: 'https://images.unsplash.com/photo-1587271339318-2e5fb02e25b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     alt: 'Ring Detail',
+    size: 'small'
   },
   {
     url: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     alt: 'Lachendes Paar',
+    size: 'large'
   },
   {
-    url: 'https://images.unsplash.com/photo-1580824456266-c578f254eb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    url: 'https://images.unsplash.com/photo-1580824456266-c578f254eb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80',
     alt: 'Paar am See',
+    size: 'medium'
   },
 ];
+
+const breakpointColumns = {
+  default: 3,
+  1100: 2,
+  700: 1
+};
 
 const Home = () => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -157,7 +170,11 @@ const Home = () => {
             <p className="text-content-secondary">Einige besondere Augenblicke aus unserer gemeinsamen Zeit</p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Masonry
+            breakpointCols={breakpointColumns}
+            className="flex -ml-4 w-auto"
+            columnClassName="pl-4 bg-clip-padding"
+          >
             {photos.map((photo, index) => (
               <motion.div
                 key={photo.url}
@@ -165,22 +182,21 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="relative aspect-square overflow-hidden group"
+                className={`mb-4 overflow-hidden ${
+                  photo.size === 'large' ? 'h-[500px]' :
+                  photo.size === 'medium' ? 'h-[400px]' :
+                  'h-[300px]'
+                }`}
               >
                 <img
                   src={photo.url}
                   alt={photo.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
-                  <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg">
-                    {photo.alt}
-                  </p>
-                </div>
               </motion.div>
             ))}
-          </div>
+          </Masonry>
         </div>
       </section>
     </div>
