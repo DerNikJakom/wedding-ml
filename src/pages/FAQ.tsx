@@ -58,10 +58,6 @@ const faqs = [
     answer: 'Aufgrund der begrenzten Kapazität können wir Begleitungen nur für verheiratete, verlobte und zusammenlebende Paare ermöglichen. Ihre Einladung wird klar angeben, ob eine Begleitung eingeschlossen ist.',
   },
   {
-    question: 'Wann sollte ich ankommen?',
-    answer: 'Bitte kommen Sie 30 Minuten vor Beginn der Zeremonie (14:30 Uhr) an, damit genügend Zeit für die Platzierung bleibt. Die Zeremonie beginnt pünktlich um 15:00 Uhr.',
-  },
-  {
     question: 'Gibt es Parkplätze?',
     answer: 'Ein Parkservice steht sowohl bei der Zeremonie als auch beim Empfang zur Verfügung. Wenn Sie selbst parken möchten, gibt es mehrere Parkhäuser in Gehweite.',
   },
@@ -78,16 +74,12 @@ const faqs = [
     answer: 'Sowohl die Zeremonie als auch der Empfang finden in Innenräumen statt, das Wetter wird also kein Problem sein.',
   },
   {
-    question: 'Gibt es einen Shuttle-Service zwischen den Locations?',
-    answer: 'Ja, wir stellen einen Shuttle-Service zwischen der Zeremonie, dem Empfang und den Partnerhotels während des gesamten Abends zur Verfügung.',
-  },
-  {
-    question: 'Wann endet die Feier?',
-    answer: 'Die Feier endet um 23:00 Uhr mit einem Spalier.',
-  },
-  {
     question: 'Gibt es besondere Ernährungsoptionen?',
     answer: 'Unser Menü enthält vegetarische, vegane und glutenfreie Optionen. Bitte geben Sie eventuelle Ernährungseinschränkungen auf Ihrer Antwortkarte an.',
+  },
+  {
+    question: 'Was wenn ich nicht rechtzeitig Rückmeldung gegebe habe?',
+    answer: 'Wenn wir Ihre Rückmeldung bis zum 31.12.2024 nicht erhalten haben, wird es automatisch als ein \'Ich werde nicht kommen\' gespeichert. Es tut uns sehr leid, dass wir dann nicht zusammen feiern können, aber leider müssen auch wir eine Frist einhalten und eine finale Gästeanzahl an einige unserer Dienstleister abgeben. Wir danken für das Verständnis!',
   },
 ];
 

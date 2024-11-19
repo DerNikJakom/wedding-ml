@@ -7,8 +7,7 @@ const DressCode = () => {
   const colorPalette = [
     { color: 'bg-black', label: 'Schwarz' },
     { color: 'bg-accent-dark', label: 'Anthrazit' },
-    { color: 'bg-accent', label: 'Silber' },
-    { color: 'bg-white', label: 'Weiß' }
+    { color: 'bg-accent', label: 'Silber' }
   ];
 
   return (

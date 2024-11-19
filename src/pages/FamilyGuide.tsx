@@ -1,31 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Phone, Star, Shield, Clock, MapPin } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
-
-const childcareServices = [
-  {
-    name: 'Elite Nanny Service',
-    rating: '4.9/5',
-    phone: '+1 (212) 555-0123',
-    address: 'Wilhelmstraße 1, 65183 Wiesbaden',
-    description: 'Professionelle, überprüfte Kinderbetreuer für den Hochzeitstag. Frühzeitige Buchung empfohlen.',
-  },
-  {
-    name: 'Little Angels Care',
-    rating: '4.8/5',
-    phone: '+1 (212) 555-0124',
-    address: 'Luisenstraße 10, 65185 Wiesbaden',
-    description: 'Gruppenbetreuung mit spannenden Aktivitäten und erfahrenen Betreuern.',
-  },
-  {
-    name: 'Wedding Day Sitters',
-    rating: '4.9/5',
-    phone: '+1 (212) 555-0125',
-    address: 'Rheinstraße 20, 65185 Wiesbaden',
-    description: 'Spezialisiert auf Hochzeitsbetreuung mit Hotel- und Veranstaltungsort-Optionen.',
-  },
-];
 
 const FamilyGuide = () => {
   return (
@@ -48,84 +24,17 @@ const FamilyGuide = () => {
           </div>
           <h2 className="text-3xl font-serif mb-4 text-content">Hinweis zu Kindern</h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
-            Auch wenn wir Ihre Kleinen sehr lieben, haben wir uns für eine Feier nur für Erwachsene entschieden. 
-            Um Ihnen die Organisation zu erleichtern, haben wir eine Liste vertrauenswürdiger Kinderbetreuungsdienste 
-            und familienfreundlicher Aktivitäten in der Umgebung zusammengestellt.
+            Kinder sind bei unserer Hochzeit herzlich willkommen, und wir freuen uns darauf, diesen besonderen Tag auch mit den Kleinen zu feiern! Damit sich eure Kinder rundum wohlfühlen, haben wir einen eigenen Raum für sie vorbereitet. Dort gibt es ein kinderfreundliches Buffet und eine entspannte Atmosphäre, in der sie spielen und Zeit miteinander verbringen können.  
+<br/><br/>
+Damit wir alles bestmöglich planen können, bitten wir euch, uns frühzeitig mitzuteilen, mit wie vielen Kindern ihr kommt und auch die Namen der Kleinen anzugeben.  
+<br/><br/>
+Wir werden für ein wenig Unterhaltung sorgen, aber wir wissen, dass jedes Kind andere Vorlieben hat. Wenn eure Kinder Lieblingsspielzeug, Bücher, Puppen, eine Nintendo-Konsole oder etwas anderes mitbringen möchten, freuen wir uns darüber. So wird sichergestellt, dass sie ganz nach ihrem Geschmack beschäftigt sind und eine genauso schöne Zeit haben wie die Erwachsenen.  
+<br/><br/>
+Falls eure älteren Kinder (ab 12 Jahren) lieber bei den Erwachsenen sitzen möchten, ist das natürlich ebenfalls möglich! Bitte gebt uns in diesem Fall einfach Bescheid und vermerkt es bei der RSVP.  
+<br/><br/>
+Wir freuen uns auf eine Hochzeit, bei der auch unsere kleinen Gäste auf ihre Kosten kommen – egal, ob sie feiern, spielen oder einfach nur genießen möchten!  
           </p>
         </motion.div>
-
-        <div className="mb-16">
-          <h2 className="text-3xl font-serif text-center mb-12 text-content">Empfohlene Kinderbetreuung</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {childcareServices.map((service, index) => (
-              <motion.div
-                key={service.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="touch-card"
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <Star className="w-5 h-5 text-yellow-400" />
-                  <span className="font-medium text-content">{service.rating}</span>
-                </div>
-                <h3 className="text-xl font-serif mb-2 text-content">{service.name}</h3>
-                <p className="text-content-secondary mb-4">{service.description}</p>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-primary" />
-                    <a href={`tel:${service.phone}`} className="text-content-secondary hover:text-content">
-                      {service.phone}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-primary" />
-                    <span className="text-content-secondary">{service.address}</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="touch-card"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <Shield className="w-6 h-6 text-primary" />
-              <h3 className="text-xl font-serif text-content">Sicherheit geht vor</h3>
-            </div>
-            <p className="text-content-secondary">
-              Alle empfohlenen Betreuungsdienste sind lizenziert, versichert und führen
-              gründliche Hintergrundüberprüfungen ihrer Mitarbeiter durch. Sie befolgen
-              außerdem strenge Gesundheits- und Sicherheitsprotokolle.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="touch-card"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <Clock className="w-6 h-6 text-primary" />
-              <h3 className="text-xl font-serif text-content">Buchungszeitplan</h3>
-            </div>
-            <p className="text-content-secondary">
-              Wir empfehlen, die Kinderbetreuung mindestens 6-8 Wochen vor dem
-              Hochzeitstermin zu buchen, um die Verfügbarkeit zu gewährleisten. Die
-              meisten Dienste benötigen eine Anzahlung zur Reservierung.
-            </p>
-          </motion.div>
-        </div>
 
         <div className="text-center">
           <h2 className="text-3xl font-serif mb-8 text-content">Familienfreundliche Aktivitäten</h2>

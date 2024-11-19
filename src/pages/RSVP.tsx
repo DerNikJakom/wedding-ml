@@ -136,25 +136,6 @@ const RSVP = () => {
                     </select>
                   </div>
 
-                  {/* Menüauswahl */}
-                  <div>
-                    <label htmlFor="menu" className="block text-sm font-medium mb-2 text-content">
-                      Menüauswahl
-                    </label>
-                    <select
-                      name="menu"
-                      id="menu"
-                      required
-                      className="input-field"
-                    >
-                      <option value="">Bitte wählen...</option>
-                      <option value="meat">Rinderfilet</option>
-                      <option value="fish">Lachs</option>
-                      <option value="vegetarian">Vegetarisch</option>
-                      <option value="vegan">Vegan</option>
-                    </select>
-                  </div>
-
                   {/* Unverträglichkeiten */}
                   <div>
                     <label htmlFor="dietary" className="block text-sm font-medium mb-2 text-content">
@@ -167,22 +148,6 @@ const RSVP = () => {
                       className="input-field"
                       placeholder="Bitte geben Sie etwaige Allergien oder Unverträglichkeiten an..."
                     />
-                  </div>
-
-                  {/* Übernachtung */}
-                  <div>
-                    <label htmlFor="accommodation" className="block text-sm font-medium mb-2 text-content">
-                      Benötigen Sie eine Hotelempfehlung?
-                    </label>
-                    <select
-                      name="accommodation"
-                      id="accommodation"
-                      required
-                      className="input-field"
-                    >
-                      <option value="no">Nein, danke</option>
-                      <option value="yes">Ja, bitte</option>
-                    </select>
                   </div>
 
                   {/* Musikwunsch */}

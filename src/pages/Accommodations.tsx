@@ -57,9 +57,15 @@ const Accommodations = () => {
           </div>
           <h2 className="text-3xl font-serif mb-4 text-content">Komfortabel übernachten</h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
-            Wir haben für unsere Hochzeitsgäste Sonderkonditionen in diesen ausgewählten Hotels vereinbart.
-            Bitte erwähnen Sie bei der Buchung "Hochzeit Laura & Michael", um den vergünstigten Tarif zu erhalten.
-            Buchen Sie frühzeitig, da die Zimmerkontingente begrenzt sind.
+            Für euren Aufenthalt während unserer Hochzeit haben wir einige
+Unterkunftsmöglichkeiten für euch
+zusammengestellt. Egal ob ihr es lieber
+gemütlich, modern oder luxuriös mögt – hier
+ist hoﬀentlich für jeden etwas dabei. Wir
+empfehlen euch, frühzeitig zu buchen, da die
+Verfügbarkeit begrenzt sein kann. Wenn ihr
+Fragen habt oder Hilfe benötigt, meldet euch
+gerne bei uns!
           </p>
         </motion.div>
 

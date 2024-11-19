@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Calendar, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
-import Masonry from "react-masonry-css";
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Calendar, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Masonry from 'react-masonry-css';
 
 const calculateTimeLeft = () => {
-  const weddingDate = new Date("2025-02-08T15:00:00").getTime();
+  const weddingDate = new Date('2025-02-08T15:00:00').getTime();
   const now = new Date().getTime();
   const difference = weddingDate - now;
 
   let timeLeft = {
-    days: "0",
-    hours: "0",
-    minutes: "0",
-    seconds: "0",
+    days: '0',
+    hours: '0',
+    minutes: '0',
+    seconds: '0'
   };
 
   if (difference > 0) {
@@ -21,7 +21,7 @@ const calculateTimeLeft = () => {
       days: Math.floor(difference / (1000 * 60 * 60 * 24)).toString(),
       hours: Math.floor((difference / (1000 * 60 * 60)) % 24).toString(),
       minutes: Math.floor((difference / 1000 / 60) % 60).toString(),
-      seconds: Math.floor((difference / 1000) % 60).toString(),
+      seconds: Math.floor((difference / 1000) % 60).toString()
     };
   }
 
@@ -30,106 +30,41 @@ const calculateTimeLeft = () => {
 
 const photos = [
   {
-    url: "https://i.imgur.com/8d7qYC3.jpeg",
-    alt: "Rücken an Rücken sw",
-    size: "large",
+    url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Paar im Garten',
+    size: 'large'
   },
   {
-    url: "https://i.imgur.com/HEH8Sa7.jpeg",
-    alt: "1",
-    size: "small",
+    url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    alt: 'Paar bei Sonnenuntergang',
+    size: 'small'
   },
   {
-    url: "https://i.imgur.com/w0mk2lX.jpeg",
-    alt: "2",
-    size: "large",
+    url: 'https://images.unsplash.com/photo-1525258946800-98cfd641d0de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Spazierendes Paar',
+    size: 'medium'
   },
   {
-    url: "https://i.imgur.com/rNoJCcG.jpeg",
-    alt: "3",
-    size: "small",
+    url: 'https://images.unsplash.com/photo-1587271339318-2e5fb02e25b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    alt: 'Ring Detail',
+    size: 'small'
   },
   {
-    url: "https://i.imgur.com/eegi6dJ.jpeg",
-    alt: "4",
-    size: "large",
+    url: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Lachendes Paar',
+    size: 'large'
   },
   {
-    url: "https://i.imgur.com/9LDQhwX.jpeg",
-    alt: "5",
-    size: "medium",
-  },
-  {
-    url: "https://i.imgur.com/1ZXXpKD.jpeg",
-    alt: "6",
-    size: "medium",
-  },
-  {
-    url: "https://i.imgur.com/c1jtBEq.jpeg",
-    alt: "7",
-    size: "small",
-  },
-  {
-    url: "https://i.imgur.com/wOZFAD4.jpeg",
-    alt: "8",
-    size: "large",
-  },
-  {
-    url: "https://i.imgur.com/Bcz8rwF.jpeg",
-    alt: "9",
-    size: "large",
-  },
-  {
-    url: "https://i.imgur.com/VXeTw6S.jpeg",
-    alt: "10",
-    size: "medium",
-  },
-  {
-    url: "https://i.imgur.com/33rhx9A.jpeg",
-    alt: "11",
-    size: "large",
-  },
-  {
-    url: "https://i.imgur.com/Orneq2F.jpeg",
-    alt: "12",
-    size: "large",
-  },
-  {
-    url: "https://i.imgur.com/bLnXLxg.jpeg",
-    alt: "13",
-    size: "small",
-  },
-  {
-    url: "https://i.imgur.com/4vMevSc.jpeg",
-    alt: "14",
-    size: "small",
-  },
-  {
-    url: "https://i.imgur.com/HEH8Sa7.jpeg",
-    alt: "15",
-    size: "small",
-  },
-  {
-    url: "https://i.imgur.com/jZosQyv.jpeg",
-    alt: "16",
-    size: "small",
-  },
-  {
-    url: "https://i.imgur.com/rAutnG7.jpeg",
-    alt: "17",
-    size: "large",
-  },
-  {
-    url: "https://i.imgur.com/85L87uu.jpeg",
-    alt: "18",
-    size: "large",
+    url: 'https://images.unsplash.com/photo-1580824456266-c578f254eb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80',
+    alt: 'Paar am See',
+    size: 'medium'
   },
 ];
 
 const breakpointColumns = {
   default: 3,
   1100: 2,
-  700: 1,
+  700: 1
 };
 
 const Home = () => {
@@ -149,7 +84,7 @@ const Home = () => {
       <div
         className="h-screen-90 bg-cover bg-center flex items-center justify-center relative"
         style={{
-          backgroundImage: 'url("https://i.imgur.com/jZosQyv.jpeg")',
+          backgroundImage: 'url("https://lh3.googleusercontent.com/d/1IIgj3Mb_uURNRqBCu063t0fpmwVqLcBn")',
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50" />
@@ -159,9 +94,7 @@ const Home = () => {
           transition={{ duration: 1 }}
           className="text-center z-10"
         >
-          <h1 className="font-serif text-6xl md:text-8xl mb-4 text-white">
-            Laura & Michael
-          </h1>
+          <h1 className="font-serif text-6xl md:text-8xl mb-4 text-white">Laura & Michael</h1>
           <p className="text-xl md:text-2xl mb-8 text-white">Wir heiraten!</p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-lg text-white">
             <div className="flex items-center gap-2">
@@ -186,13 +119,10 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-serif text-4xl mb-6 text-content">
-              Willkommen zu unserer Hochzeit
-            </h2>
+            <h2 className="font-serif text-4xl mb-6 text-content">Willkommen zu unserer Hochzeit</h2>
             <p className="text-content-secondary mb-8 leading-relaxed">
-              Wir freuen uns darauf, unseren besonderen Tag mit unserer Familie
-              und unseren Freunden zu feiern. Begleitet uns zu einem Abend
-              voller Liebe, Lachen und unvergesslicher Momente.
+              Wir freuen uns darauf, unseren besonderen Tag mit unserer Familie und unseren Freunden zu feiern. 
+              Begleitet uns zu einem Abend voller Liebe, Lachen und unvergesslicher Momente.
             </p>
             <Link to="/rsvp" className="btn-primary inline-block">
               Jetzt zusagen
@@ -212,15 +142,13 @@ const Home = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
           >
             {[
-              { label: "Tage", value: timeLeft.days },
-              { label: "Stunden", value: timeLeft.hours },
-              { label: "Minuten", value: timeLeft.minutes },
-              { label: "Sekunden", value: timeLeft.seconds },
+              { label: 'Tage', value: timeLeft.days },
+              { label: 'Stunden', value: timeLeft.hours },
+              { label: 'Minuten', value: timeLeft.minutes },
+              { label: 'Sekunden', value: timeLeft.seconds },
             ].map((item) => (
               <div key={item.label}>
-                <div className="font-serif text-4xl mb-2 text-content">
-                  {item.value}
-                </div>
+                <div className="font-serif text-4xl mb-2 text-content">{item.value}</div>
                 <div className="text-content-secondary">{item.label}</div>
               </div>
             ))}
@@ -238,14 +166,10 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="font-serif text-4xl mb-6 text-content">
-              Unsere Momente
-            </h2>
-            <p className="text-content-secondary">
-              Einige besondere Augenblicke aus unserer gemeinsamen Zeit
-            </p>
+            <h2 className="font-serif text-4xl mb-6 text-content">Unsere Momente</h2>
+            <p className="text-content-secondary">Einige besondere Augenblicke aus unserer gemeinsamen Zeit</p>
           </motion.div>
-
+          
           <Masonry
             breakpointCols={breakpointColumns}
             className="flex -ml-4 w-auto"
@@ -259,11 +183,9 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className={`mb-4 overflow-hidden ${
-                  photo.size === "large"
-                    ? "h-[500px]"
-                    : photo.size === "medium"
-                    ? "h-[400px]"
-                    : "h-[300px]"
+                  photo.size === 'large' ? 'h-[500px]' :
+                  photo.size === 'medium' ? 'h-[400px]' :
+                  'h-[300px]'
                 }`}
               >
                 <img

@@ -1,32 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Clock, Users } from 'lucide-react';
+import { Phone, Users } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 
 const organizers = [
   {
-    name: 'Anna Schmidt',
-    role: 'Hauptorganisatorin',
-    description: 'Ihre erste Ansprechpartnerin für alle organisatorischen Fragen rund um die Hochzeit.',
-    email: 'anna.schmidt@example.com',
-    phone: '+49 123 456789',
-    availability: 'Mo-Fr 10:00-18:00 Uhr',
+    name: 'Lisa Schulz',
+    role: 'Brautjungfer & Hauptorganisatorin',
+    description: 'Für allgemeine Fragen oder falls ihr Teil des Programms sein möchtet, könnt ihr euch gerne an Lisa wenden. Sie ist die beste Ansprechpartnerin für alles rund um unseren großen Tag!',
+    phone: '+49 1516 4064564',
   },
   {
-    name: 'Thomas Weber',
-    role: 'Zeremonienmeister',
-    description: 'Zuständig für den Ablauf der Trauung und die Koordination am Hochzeitstag.',
-    email: 'thomas.weber@example.com',
-    phone: '+49 123 456790',
-    availability: 'Mo-Sa 09:00-20:00 Uhr',
+    name: 'Paul Grigorchuk',
+    role: 'Bruder des Bräutigams & Trauzeuge',
+    description: 'Bei Fragen, die die Familie des Bräutigams betreffen, könnt ihr euch jederzeit an Paul wenden. Er steht euch gerne zur Verfügung!',
+    phone: '+49 1523 3875267',
   },
   {
-    name: 'Marie Becker',
-    role: 'Event-Koordinatorin',
-    description: 'Verantwortlich für Location, Catering und alle Dienstleister.',
-    email: 'marie.becker@example.com',
-    phone: '+49 123 456791',
-    availability: 'Mo-Fr 09:00-17:00 Uhr',
+    name: 'Lea Milène Komnik',
+    role: 'Schwester der Braut & Trauzeugin',
+    description: 'Für Fragen im Zusammenhang mit der Familie der Braut könnt ihr euch vertrauensvoll an Milene wenden. Sie hilft euch gerne weiter!',
+    phone: '+49 170 4028932',
   }
 ];
 
@@ -79,55 +73,18 @@ const Contact = () => {
                 {organizer.description}
               </p>
 
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-content-secondary">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <a 
-                    href={`mailto:${organizer.email}`}
-                    className="hover:text-content transition-colors"
-                  >
-                    {organizer.email}
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-3 text-content-secondary">
-                  <Phone className="w-5 h-5 text-primary" />
-                  <a 
-                    href={`tel:${organizer.phone}`}
-                    className="hover:text-content transition-colors"
-                  >
-                    {organizer.phone}
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-3 text-content-secondary">
-                  <Clock className="w-5 h-5 text-primary" />
-                  <span>{organizer.availability}</span>
-                </div>
+              <div className="flex items-center justify-center gap-3 text-content-secondary">
+                <Phone className="w-5 h-5 text-primary" />
+                <a 
+                  href={`tel:${organizer.phone}`}
+                  className="hover:text-content transition-colors"
+                >
+                  {organizer.phone}
+                </a>
               </div>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-16 touch-card text-center"
-        >
-          <h2 className="text-2xl font-serif mb-4 text-content">Dringende Angelegenheiten</h2>
-          <p className="text-content-secondary">
-            Bei sehr dringenden Anliegen außerhalb der Geschäftszeiten erreichen Sie unseren 
-            24/7-Notfallkontakt unter: <br />
-            <a 
-              href="tel:+491234567899" 
-              className="text-primary hover:underline font-medium"
-            >
-              +49 123 456 7899
-            </a>
-          </p>
-        </motion.div>
       </div>
     </div>
   );
