@@ -30,35 +30,90 @@ const calculateTimeLeft = () => {
 
 const photos = [
   {
-    url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Paar im Garten',
+    url: 'https://i.imgur.com/VXeTw6S.jpeg',
+    alt: 'Gemeinsamer Moment',
     size: 'large'
   },
   {
-    url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    alt: 'Paar bei Sonnenuntergang',
-    size: 'small'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1525258946800-98cfd641d0de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Spazierendes Paar',
+    url: 'https://i.imgur.com/85L87uu.jpeg',
+    alt: 'Romantisches Foto',
     size: 'medium'
   },
   {
-    url: 'https://images.unsplash.com/photo-1587271339318-2e5fb02e25b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-    alt: 'Ring Detail',
+    url: 'https://i.imgur.com/9LDQhwX.jpeg',
+    alt: 'Verlobungsfoto',
     size: 'small'
   },
   {
-    url: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Lachendes Paar',
+    url: 'https://i.imgur.com/4vMevSc.jpeg',
+    alt: 'Gemeinsame Zeit',
     size: 'large'
   },
   {
-    url: 'https://images.unsplash.com/photo-1580824456266-c578f254eb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80',
-    alt: 'Paar am See',
+    url: 'https://i.imgur.com/c1jtBEq.jpeg',
+    alt: 'Gemeinsames Foto',
+    size: 'small'
+  },
+  {
+    url: 'https://i.imgur.com/wOZFAD4.jpeg',
+    alt: 'Paar im Freien',
     size: 'medium'
   },
+  {
+    url: 'https://i.imgur.com/1ZXXpKD.jpeg',
+    alt: 'Laura & Michael',
+    size: 'large'
+  },
+  {
+    url: 'https://i.imgur.com/Bcz8rwF.jpeg',
+    alt: 'Zusammen lachend',
+    size: 'medium'
+  },
+  {
+    url: 'https://i.imgur.com/HEH8Sa7.jpeg',
+    alt: 'Paar Aufnahme',
+    size: 'small'
+  },
+  {
+    url: 'https://i.imgur.com/rNoJCcG.jpeg',
+    alt: 'Paar Foto',
+    size: 'medium'
+  },
+  {
+    url: 'https://i.imgur.com/eegi6dJ.jpeg',
+    alt: 'Romantischer Moment',
+    size: 'small'
+  },
+  {
+    url: 'https://i.imgur.com/bLnXLxg.jpeg',
+    alt: 'Zusammen im Freien',
+    size: 'large'
+  },
+  {
+    url: 'https://i.imgur.com/33rhx9A.jpeg',
+    alt: 'Paar Portrait',
+    size: 'medium'
+  },
+  {
+    url: 'https://i.imgur.com/Orneq2F.jpeg',
+    alt: 'Gemeinsames Lachen',
+    size: 'small'
+  },
+  {
+    url: 'https://i.imgur.com/rAutnG7.jpeg',
+    alt: 'Glückliches Paar',
+    size: 'medium'
+  },
+  {
+    url: 'https://i.imgur.com/8d7qYC3.jpeg',
+    alt: 'Glücklicher Moment',
+    size: 'medium'
+  },
+  {
+    url: 'https://i.imgur.com/w0mk2lX.jpeg',
+    alt: 'Besonderer Moment',
+    size: 'large'
+  }
 ];
 
 const breakpointColumns = {
@@ -84,7 +139,7 @@ const Home = () => {
       <div
         className="h-screen-90 bg-cover bg-center flex items-center justify-center relative"
         style={{
-          backgroundImage: 'url("https://lh3.googleusercontent.com/d/1IIgj3Mb_uURNRqBCu063t0fpmwVqLcBn")',
+          backgroundImage: 'url("https://i.imgur.com/IkrMUCC.jpeg")',
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50" />

@@ -1,12 +1,52 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import PageHeader from '../components/PageHeader';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import PageHeader from "../components/PageHeader";
 
 const RSVP = () => {
-  const [isAttending, setIsAttending] = useState<string>('');
+  const [isAttending, setIsAttending] = useState<string>("");
+  const deadline = new Date("2024-12-31T23:59:59");
+  const currentDate = new Date();
+  const isAfterDeadline = currentDate > deadline;
 
   // Generiere Array mit Zahlen von 1 bis 10 für die Gästeauswahl
   const guestOptions = Array.from({ length: 10 }, (_, i) => i + 1);
+
+  if (isAfterDeadline) {
+    return (
+      <div>
+        <PageHeader
+          title="Zusage"
+          subtitle="Anmeldefrist abgelaufen"
+          image="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        />
+
+        <div className="max-w-2xl mx-auto px-4 py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="touch-card text-center"
+          >
+            <h2 className="text-2xl font-serif mb-4 text-content">
+              Anmeldefrist abgelaufen
+            </h2>
+            <p className="text-content-secondary mb-6">
+              Die Anmeldefrist für unsere Hochzeit ist leider am 31. Dezember
+              2024 abgelaufen. Wir bedauern, dass wir keine weiteren Anmeldungen
+              mehr entgegennehmen können.
+            </p>
+            <p className="text-content-secondary">
+              Bei Fragen wenden Sie sich bitte an unser{" "}
+              <a href="/contact" className="text-primary hover:underline">
+                Organisationsteam
+              </a>
+              .
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -23,10 +63,10 @@ const RSVP = () => {
           transition={{ duration: 0.5 }}
         >
           <p className="text-center text-content-secondary mb-12">
-            Bitte antworten Sie bis zum 08. Januar 2025
+            Bitte antworten Sie bis zum 31. Dezember 2024
           </p>
 
-          <form 
+          <form
             name="rsvp"
             method="POST"
             data-netlify="true"
@@ -39,7 +79,10 @@ const RSVP = () => {
 
             {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2 text-content">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium mb-2 text-content"
+              >
                 Name
               </label>
               <input
@@ -54,7 +97,10 @@ const RSVP = () => {
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2 text-content">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium mb-2 text-content"
+              >
                 E-Mail
               </label>
               <input
@@ -69,7 +115,10 @@ const RSVP = () => {
 
             {/* Teilnahme */}
             <div>
-              <label htmlFor="attending" className="block text-sm font-medium mb-2 text-content">
+              <label
+                htmlFor="attending"
+                className="block text-sm font-medium mb-2 text-content"
+              >
                 Werden Sie teilnehmen?
               </label>
               <select
@@ -87,16 +136,19 @@ const RSVP = () => {
             </div>
 
             <AnimatePresence>
-              {isAttending === 'no' && (
+              {isAttending === "no" && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
+                  animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   className="space-y-6 overflow-hidden"
                 >
                   {/* Nachricht bei Absage */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-content">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2 text-content"
+                    >
                       Möchten Sie uns noch etwas mitteilen?
                     </label>
                     <textarea
@@ -110,16 +162,19 @@ const RSVP = () => {
                 </motion.div>
               )}
 
-              {isAttending === 'yes' && (
+              {isAttending === "yes" && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
+                  animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   className="space-y-6 overflow-hidden"
                 >
                   {/* Begleitung */}
                   <div>
-                    <label htmlFor="guests" className="block text-sm font-medium mb-2 text-content">
+                    <label
+                      htmlFor="guests"
+                      className="block text-sm font-medium mb-2 text-content"
+                    >
                       Anzahl der Personen (inkl. Ihrer Person)
                     </label>
                     <select
@@ -128,9 +183,9 @@ const RSVP = () => {
                       required
                       className="input-field"
                     >
-                      {guestOptions.map(num => (
+                      {guestOptions.map((num) => (
                         <option key={num} value={num}>
-                          {num} {num === 1 ? 'Person' : 'Personen'}
+                          {num} {num === 1 ? "Person" : "Personen"}
                         </option>
                       ))}
                     </select>
@@ -138,7 +193,10 @@ const RSVP = () => {
 
                   {/* Unverträglichkeiten */}
                   <div>
-                    <label htmlFor="dietary" className="block text-sm font-medium mb-2 text-content">
+                    <label
+                      htmlFor="dietary"
+                      className="block text-sm font-medium mb-2 text-content"
+                    >
                       Allergien oder Unverträglichkeiten
                     </label>
                     <textarea
@@ -152,7 +210,10 @@ const RSVP = () => {
 
                   {/* Musikwunsch */}
                   <div>
-                    <label htmlFor="song" className="block text-sm font-medium mb-2 text-content">
+                    <label
+                      htmlFor="song"
+                      className="block text-sm font-medium mb-2 text-content"
+                    >
                       Ihr Musikwunsch für die Feier
                     </label>
                     <input
@@ -166,7 +227,10 @@ const RSVP = () => {
 
                   {/* Nachricht */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-content">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2 text-content"
+                    >
                       Möchten Sie uns noch etwas mitteilen?
                     </label>
                     <textarea
@@ -181,10 +245,7 @@ const RSVP = () => {
               )}
             </AnimatePresence>
 
-            <button
-              type="submit"
-              className="btn-primary w-full"
-            >
+            <button type="submit" className="btn-primary w-full">
               Zusage absenden
             </button>
           </form>
