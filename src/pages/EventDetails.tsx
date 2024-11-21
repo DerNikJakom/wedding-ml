@@ -12,26 +12,35 @@ const EventDetails = () => {
       description: "Feierliche Trauung in der Ringkirche Wiesbaden.",
     },
     {
-      time: "16:00 Uhr",
+      time: "17:00 Uhr",
       title: "Sektempfang",
       description:
         "Genießen Sie Champagner und Häppchen während wir Fotos mit der Familie machen.",
     },
     {
-      time: "17:00 Uhr",
+      time: "18:30 Uhr",
       title: "Empfang",
       description: "Dinner und Feier in der Casino Gesellschaft Wiesbaden.",
     },
     {
-      time: "22:00 Uhr",
-      title: "Mitternachtssnack",
-      description: "Stärken Sie sich mit kleinen Köstlichkeiten.",
+      time: "20:00 Uhr",
+      title: "Programm",
+      description: "Lorem ipsum",
     },
     {
-      time: "23:00 Uhr",
-      title: "Ausklang",
-      description:
-        "Verabschiedung des Brautpaares mit einem besonderen Spalier.",
+      time: "21:00 Uhr",
+      title: "Torte",
+      description: "Lorem ipsum",
+    },
+    {
+      time: "22:00 Uhr",
+      title: "Dance Floor",
+      description: "Lorem ipsum",
+    },
+    {
+      time: "00:00 Uhr",
+      title: "Mitternachtssnack",
+      description: "Stärken Sie sich mit kleinen Köstlichkeiten.",
     },
   ];
 
