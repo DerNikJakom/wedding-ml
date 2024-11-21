@@ -17,7 +17,7 @@ const RSVP = () => {
         <PageHeader
           title="Zusage"
           subtitle="Anmeldefrist abgelaufen"
-          image="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          image="https://i.imgur.com/ZVoPnLr.jpeg"
         />
 
         <div className="max-w-2xl mx-auto px-4 py-16">
@@ -53,7 +53,7 @@ const RSVP = () => {
       <PageHeader
         title="Zusage"
         subtitle="Wir freuen uns auf Ihre Antwort"
-        image="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        image="https://i.imgur.com/ZVoPnLr.jpeg"
       />
 
       <div className="max-w-2xl mx-auto px-4 py-16">

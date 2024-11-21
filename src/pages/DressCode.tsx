@@ -1,13 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import PageHeader from '../components/PageHeader';
-import { Palette, Sparkles, ShirtIcon } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import PageHeader from "../components/PageHeader";
+import { Palette, Sparkles, ShirtIcon } from "lucide-react";
 
 const DressCode = () => {
   const colorPalette = [
-    { color: 'bg-black', label: 'Schwarz' },
-    { color: 'bg-accent-dark', label: 'Anthrazit' },
-    { color: 'bg-accent', label: 'Silber' }
+    { color: "bg-black", label: "Schwarz" },
+    { color: "bg-accent-dark", label: "Anthrazit" },
+    { color: "bg-accent", label: "Silber" },
   ];
 
   return (
@@ -15,7 +15,7 @@ const DressCode = () => {
       <PageHeader
         title="Kleiderordnung"
         subtitle="Black Tie"
-        image="https://images.unsplash.com/photo-1585241645927-c7a8e5840c42?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        image="https://i.imgur.com/NZI3pmX.jpeg"
       />
 
       <div className="max-w-4xl mx-auto px-4 py-16">
@@ -29,10 +29,13 @@ const DressCode = () => {
           <div className="flex justify-center mb-6">
             <ShirtIcon className="w-12 h-12 text-primary" />
           </div>
-          <h2 className="text-3xl font-serif mb-4 text-content">Dresscode: Black Tie</h2>
+          <h2 className="text-3xl font-serif mb-4 text-content">
+            Dresscode: Black Tie
+          </h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
-            Wir bitten unsere Gäste, sich an den Black-Tie-Dresscode zu halten. Dies bedeutet formelle Abendgarderobe,
-            die der Bedeutung dieses besonderen Anlasses entspricht.
+            Wir bitten unsere Gäste, sich an den Black-Tie-Dresscode zu halten.
+            Dies bedeutet formelle Abendgarderobe, die der Bedeutung dieses
+            besonderen Anlasses entspricht.
           </p>
         </motion.div>
 
@@ -44,7 +47,9 @@ const DressCode = () => {
             viewport={{ once: true }}
             className="touch-card"
           >
-            <h3 className="text-xl font-serif mb-4 text-content">Für die Herren</h3>
+            <h3 className="text-xl font-serif mb-4 text-content">
+              Für die Herren
+            </h3>
             <ul className="space-y-2 text-content-secondary">
               <li>• Smoking oder schwarzer Anzug</li>
               <li>• Weißes Smokinghemd</li>
@@ -62,7 +67,9 @@ const DressCode = () => {
             viewport={{ once: true }}
             className="touch-card"
           >
-            <h3 className="text-xl font-serif mb-4 text-content">Für die Damen</h3>
+            <h3 className="text-xl font-serif mb-4 text-content">
+              Für die Damen
+            </h3>
             <ul className="space-y-2 text-content-secondary">
               <li>• Bodenlanges Abendkleid</li>
               <li>• Elegantes Cocktailkleid</li>
@@ -88,7 +95,9 @@ const DressCode = () => {
           <div className="flex justify-center gap-4">
             {colorPalette.map(({ color, label }) => (
               <div key={label} className="text-center">
-                <div className={`w-16 h-16 rounded-full ${color} mb-2 border border-black/10`}></div>
+                <div
+                  className={`w-16 h-16 rounded-full ${color} mb-2 border border-black/10`}
+                ></div>
                 <span className="text-sm text-content-secondary">{label}</span>
               </div>
             ))}
@@ -105,11 +114,14 @@ const DressCode = () => {
           <div className="flex justify-center mb-6">
             <Sparkles className="w-5 h-5 text-primary" />
           </div>
-          <h3 className="text-xl font-serif mb-4 text-content">Zusätzliche Hinweise</h3>
+          <h3 className="text-xl font-serif mb-4 text-content">
+            Zusätzliche Hinweise
+          </h3>
           <p className="text-content-secondary max-w-2xl mx-auto">
-            Die Feier findet hauptsächlich in klimatisierten Innenräumen statt. 
-            Bitte beachten Sie, dass wir eine formelle Abendveranstaltung planen, 
-            bei der die Garderobe der Festlichkeit des Anlasses entsprechen sollte.
+            Die Feier findet hauptsächlich in klimatisierten Innenräumen statt.
+            Bitte beachten Sie, dass wir eine formelle Abendveranstaltung
+            planen, bei der die Garderobe der Festlichkeit des Anlasses
+            entsprechen sollte.
           </p>
         </motion.div>
       </div>
