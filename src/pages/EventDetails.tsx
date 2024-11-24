@@ -9,7 +9,8 @@ const EventDetails = () => {
     {
       time: "15:00 Uhr",
       title: "Trauung",
-      description: "Feierliche Trauung in der Ringkirche Wiesbaden.",
+      description:
+        "Feierliche Trauung in der Ringkirche Wiesbaden. Zieht euch für diesen Teil bitte warm an, da es in der Kirche sehr kalt sein wird.",
     },
     {
       time: "17:00 Uhr",
@@ -25,17 +26,20 @@ const EventDetails = () => {
     {
       time: "20:00 Uhr",
       title: "Programm",
-      description: "Lorem ipsum",
+      description:
+        "Wenn ihr Teil des Programms sein möchtet, könnt ihr euch gerne bei Lisa Schulz (siehe Kontakt) melden. Sie steht euch für alle Fragen und Details zur Verfügung.",
     },
     {
       time: "21:00 Uhr",
       title: "Torte",
-      description: "Lorem ipsum",
+      description:
+        "Der Anschnitt der Hochzeitstorte markiert einen besonderen Moment unseres Tages – wir freuen uns, ihn mit euch zu teilen!",
     },
     {
       time: "22:00 Uhr",
       title: "Dance Floor",
-      description: "Lorem ipsum",
+      description:
+        "Der Dancefloor wartet auf euch! Lasst uns gemeinsam die Nacht durchtanzen und diesen besonderen Tag mit viel Musik und guter Stimmung feiern!",
     },
     {
       time: "00:00 Uhr",

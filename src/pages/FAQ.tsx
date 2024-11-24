@@ -60,7 +60,7 @@ const faqs = [
   {
     question: "Gibt es eine Geschenkeliste?",
     answer:
-      "Wir haben bei WeddingWorld und Bloomingdale's eine Geschenkeliste erstellt. Die Links finden Sie auf unserer Website. Alternativ freuen wir uns auch über einen Beitrag zu unserer Hochzeitsreise.",
+      "Wir wünschen uns vor allem, dass ihr alle dabei seid, um diesen unvergesslichen Tag mit uns zu feiern. Darüber hinaus freuen wir uns über Geldgeschenke für unsere gemeinsame Zukunft.",
   },
   {
     question: "Darf ich eine Begleitung mitbringen?",
@@ -70,22 +70,22 @@ const faqs = [
   {
     question: "Gibt es Parkplätze?",
     answer:
-      "Ein Parkservice steht sowohl bei der Zeremonie als auch beim Empfang zur Verfügung. Wenn Sie selbst parken möchten, gibt es mehrere Parkhäuser in Gehweite.",
+      "Da wir relativ stadtnah heiraten, sind (kostenlose) Parkplätze eher selten. Wir bemühen uns, für die Trauung eine Parkerlaubnis an der Kirche für unsere Gäste einzuholen. Umliegend von unserer Location gibt es kostenpflichtige Parkhäuser: Parkhaus 'Am Markt' (2 Min. Fußweg), Parkhaus 'Luisenplatz' (5 Min. Fußweg). Beide Parkhäuser haben 24 Stunden geöffnet. Einige kostenfreie Parkplätze befinden sich in der Rheinstraße (ca. 10 Min. Fußweg).",
   },
   {
     question: "Wie ist der Dresscode?",
     answer:
-      "Der Dresscode ist Black Tie. Herren tragen Smoking oder dunkle Anzüge, Damen bodenlange Abendkleider oder elegante Cocktailkleider in Schwarz oder Weiß.",
+      "Der Dresscode ist Black Tie. Herren tragen Smoking oder dunkle Anzüge, Damen bodenlange Kleider oder elegante Cocktailkleider in Schwarz.",
   },
   {
     question: "Sind Kinder willkommen?",
     answer:
-      "Auch wenn wir Ihre Kleinen lieben, haben wir uns für eine Feier nur für Erwachsene entschieden. Auf unserer Familien-Seite finden Sie Empfehlungen für Kinderbetreuung.",
+      "Ja, Kinder sind herzlich eingeladen! Wir bitten jedoch anzugeben, wie viele pro Familie dabei sind, da wir für die Kinder einen extra Raum organisiert haben mit eigenem Büfett. (siehe ‚Familie‘)",
   },
   {
     question: "Findet die Hochzeit drinnen oder draußen statt?",
     answer:
-      "Sowohl die Zeremonie als auch der Empfang finden in Innenräumen statt, das Wetter wird also kein Problem sein.",
+      "Sowohl die Zeremonie als auch der Empfang finden in Innenräumen statt, das Wetter wird also kein Problem sein. Jedoch wird es in der Kirche sehr kalt werden, also zieht euch bitte warm an hierfür.",
   },
   {
     question: "Gibt es besondere Ernährungsoptionen?",

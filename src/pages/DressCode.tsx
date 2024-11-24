@@ -53,9 +53,7 @@ const DressCode = () => {
             <ul className="space-y-2 text-content-secondary">
               <li>• Smoking oder schwarzer Anzug</li>
               <li>• Weißes Smokinghemd</li>
-              <li>• Schwarze Fliege</li>
-              <li>• Schwarze Lackschuhe</li>
-              <li>• Schwarze Socken</li>
+              <li>• Schwarze Fliege oder Krawatte</li>
               <li>• Optional: Kummerbund oder Weste</li>
             </ul>
           </motion.div>
@@ -71,12 +69,8 @@ const DressCode = () => {
               Für die Damen
             </h3>
             <ul className="space-y-2 text-content-secondary">
-              <li>• Bodenlanges Abendkleid</li>
-              <li>• Elegantes Cocktailkleid</li>
-              <li>• Hochwertige Materialien wie Seide, Samt oder Chiffon</li>
-              <li>• Dezenter, eleganter Schmuck</li>
-              <li>• Abendschuhe</li>
-              <li>• Kleine Abendtasche</li>
+              <li>• Bodenlanges, schwarzes Abendkleid</li>
+              <li>• Elegantes, schwarzes Cocktailkleid</li>
             </ul>
           </motion.div>
         </div>
@@ -102,27 +96,6 @@ const DressCode = () => {
               </div>
             ))}
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="flex justify-center mb-6">
-            <Sparkles className="w-5 h-5 text-primary" />
-          </div>
-          <h3 className="text-xl font-serif mb-4 text-content">
-            Zusätzliche Hinweise
-          </h3>
-          <p className="text-content-secondary max-w-2xl mx-auto">
-            Die Feier findet hauptsächlich in klimatisierten Innenräumen statt.
-            Bitte beachten Sie, dass wir eine formelle Abendveranstaltung
-            planen, bei der die Garderobe der Festlichkeit des Anlasses
-            entsprechen sollte.
-          </p>
         </motion.div>
       </div>
     </div>

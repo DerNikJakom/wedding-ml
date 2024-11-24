@@ -1,38 +1,53 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Globe, Building } from 'lucide-react';
-import PageHeader from '../components/PageHeader';
+import React from "react";
+import { motion } from "framer-motion";
+import { MapPin, Phone, Globe, Building } from "lucide-react";
+import PageHeader from "../components/PageHeader";
 
 const hotels = [
   {
-    name: 'Hotel Nassauer Hof',
-    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Erleben Sie zeitlose Eleganz in diesem historischen Wiesbadener Hotel. Spezielle Hochzeitsraten für unsere Gäste verfügbar.',
-    address: 'Kaiser-Friedrich-Platz 3-4, 65183 Wiesbaden',
-    phone: '+49 611 133 0',
-    website: 'https://www.nassauer-hof.de',
-    price: '$$$',
-    distance: '0.0 km vom Veranstaltungsort',
+    name: "Radisson Blu Schwarzer Bock Hotel",
+    image: "https://i.imgur.com/iUDHosW.jpeg",
+    description:
+      "Das Hotel iegt zentral am Kranzplatz, nur wenige Gehminuten vom Kurhaus und der Casino Gesellschaft entfernt. Es bietet elegante Zimmer, ein hoteleigenes Spa sowie ein reichhaltiges Frühstücksbuffet.",
+    address: "Kranzplatz 12, 65183 Wiesbaden",
+    phone: "+49 611 1550",
+    website:
+      "https://www.radissonhotels.com/de-de/hotels/radisson-blu-wiesbaden-schwarzer-bock?cid=a%3Ase+b%3Agmb+c%3Aemea+i%3Alocal+e%3Ardb+d%3Acese+h%3ADEUWEBCK",
+    price: "$$$",
+    distance: "0.5 km vom Veranstaltungsort",
   },
   {
-    name: 'Radisson Blu Schwarzer Bock',
-    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Luxuriöse Unterkünfte mit Blick auf die Stadt. Erwähnen Sie unsere Hochzeit für exklusive Raten.',
-    address: 'Kranzplatz 12, 65183 Wiesbaden',
-    phone: '+49 611 155 0',
-    website: 'https://www.radissonhotels.com',
-    price: '$$$',
-    distance: '0.2 km vom Veranstaltungsort',
+    name: "Hotel Oranien Wiesbaden",
+    image: "https://i.imgur.com/RZiiTF1.jpeg",
+    description:
+      "Ein 4-Sterne-Hotel in zentraler Lage mit eleganten Zimmern und einem Restaurant. Es liegt etwa 5 Minuten von der Casino Gesellschaft entfernt.",
+    address: "Platter Straße 2, 65183 Wiesbaden",
+    phone: "+49 611 18 82-0",
+    website: "https://www.hotel-oranien.de",
+    price: "$$$",
+    distance: "0.8 km vom Veranstaltungsort",
   },
   {
-    name: 'Dorint Pallas',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Moderne Luxus im Herzen von Wiesbaden. Elegante Zimmer mit zeitgenössischer Ausstattung.',
-    address: 'Auguste-Viktoria-Straße 15, 65185 Wiesbaden',
-    phone: '+49 611 3306 0',
-    website: 'https://hotel-wiesbaden.dorint.com',
-    price: '$$',
-    distance: '0.4 km vom Veranstaltungsort',
+    name: "Town Hotel Wiesbaden",
+    image: "https://i.imgur.com/oCa6p96.jpeg",
+    description:
+      "Ein charmantes Hotel im Zentrum, etwa 5 Gehminuten von der Casino Gesellschaft entfernt. Es bietet moderne Annehmlichkeiten und ein Frühstücksbuffet.",
+    address: "Spiegelgasse 5, 65185 Wiesbaden",
+    phone: "+49 611 360160",
+    website: "http://www.townhotel.de",
+    price: "$$",
+    distance: "0.6 km vom Veranstaltungsort",
+  },
+  {
+    name: "Hotel de France",
+    image: "https://i.imgur.com/kEIvh3G.jpeg",
+    description:
+      "In der historischen Taunusstraße gelegen, ein stilvolles Boutique-Hotel mit guter Anbindung an Sehenswürdigkeiten und die Casino Gesellschaft.",
+    address: "Taunusstraße 49, 65185 Wiesbaden",
+    phone: "+49 611 959-730",
+    website: "https://www.hoteldefrance.de",
+    price: "$$$",
+    distance: "1.2 km vom Veranstaltungsort",
   },
 ];
 
@@ -55,17 +70,16 @@ const Accommodations = () => {
           <div className="flex justify-center mb-6">
             <Building className="w-12 h-12 text-primary" />
           </div>
-          <h2 className="text-3xl font-serif mb-4 text-content">Komfortabel übernachten</h2>
+          <h2 className="text-3xl font-serif mb-4 text-content">
+            Komfortabel übernachten
+          </h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
             Für euren Aufenthalt während unserer Hochzeit haben wir einige
-Unterkunftsmöglichkeiten für euch
-zusammengestellt. Egal ob ihr es lieber
-gemütlich, modern oder luxuriös mögt – hier
-ist hoﬀentlich für jeden etwas dabei. Wir
-empfehlen euch, frühzeitig zu buchen, da die
-Verfügbarkeit begrenzt sein kann. Wenn ihr
-Fragen habt oder Hilfe benötigt, meldet euch
-gerne bei uns!
+            Unterkunftsmöglichkeiten für euch zusammengestellt. Egal ob ihr es
+            lieber gemütlich, modern oder luxuriös mögt – hier ist hoﬀentlich
+            für jeden etwas dabei. Wir empfehlen euch, frühzeitig zu buchen, da
+            die Verfügbarkeit begrenzt sein kann. Wenn ihr Fragen habt oder
+            Hilfe benötigt, meldet euch gerne bei uns!
           </p>
         </motion.div>
 
@@ -88,16 +102,22 @@ gerne bei uns!
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-serif text-content">{hotel.name}</h3>
+                  <h3 className="text-xl font-serif text-content">
+                    {hotel.name}
+                  </h3>
                   <span className="text-content-secondary">{hotel.price}</span>
                 </div>
-                <p className="text-content-secondary mb-4">{hotel.description}</p>
+                <p className="text-content-secondary mb-4">
+                  {hotel.description}
+                </p>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-start gap-2">
                     <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-primary" />
                     <div>
                       <p className="text-content-secondary">{hotel.address}</p>
-                      <p className="text-content-muted mt-1">{hotel.distance}</p>
+                      <p className="text-content-muted mt-1">
+                        {hotel.distance}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -124,16 +144,6 @@ gerne bei uns!
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-16 touch-card text-center">
-          <h2 className="text-2xl font-serif mb-4 text-content">Transport</h2>
-          <p className="text-content-secondary max-w-2xl mx-auto">
-            Alle empfohlenen Hotels befinden sich in Gehweite zum Veranstaltungsort.
-            Für diejenigen, die nicht zu Fuß gehen möchten, stellen wir einen Shuttle-Service
-            zwischen den Hotels und dem Veranstaltungsort vor und nach der Zeremonie zur Verfügung.
-            Details werden kurz vor der Hochzeit bekannt gegeben.
-          </p>
         </div>
       </div>
     </div>
