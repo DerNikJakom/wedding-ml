@@ -36,7 +36,7 @@ const RSVP = () => {
               mehr entgegennehmen können.
             </p>
             <p className="text-content-secondary">
-              Bei Fragen wenden Sie sich bitte an unser{" "}
+              Bei Fragen wendet euch bitte an unser{" "}
               <a href="/contact" className="text-primary hover:underline">
                 Organisationsteam
               </a>
@@ -63,7 +63,7 @@ const RSVP = () => {
           transition={{ duration: 0.5 }}
         >
           <p className="text-center text-content-secondary mb-12">
-            Bitte antworten Sie bis zum 31. Dezember 2024
+            Bitte antworte bis zum 31. Dezember 2024
           </p>
 
           <form
@@ -91,7 +91,7 @@ const RSVP = () => {
                 id="name"
                 required
                 className="input-field"
-                placeholder="Ihr vollständiger Name"
+                placeholder="Dein vollständiger Name"
               />
             </div>
 
@@ -109,7 +109,7 @@ const RSVP = () => {
                 id="email"
                 required
                 className="input-field"
-                placeholder="ihre@email.de"
+                placeholder="deine@email.de"
               />
             </div>
 
@@ -119,7 +119,7 @@ const RSVP = () => {
                 htmlFor="attending"
                 className="block text-sm font-medium mb-2 text-content"
               >
-                Werden Sie teilnehmen?
+                Wirst Du teilnehmen?
               </label>
               <select
                 name="attending"
@@ -149,7 +149,7 @@ const RSVP = () => {
                       htmlFor="message"
                       className="block text-sm font-medium mb-2 text-content"
                     >
-                      Möchten Sie uns noch etwas mitteilen?
+                      Möchtest Du uns noch etwas mitteilen?
                     </label>
                     <textarea
                       name="message"
@@ -175,7 +175,7 @@ const RSVP = () => {
                       htmlFor="guests"
                       className="block text-sm font-medium mb-2 text-content"
                     >
-                      Anzahl der Personen (inkl. Ihrer Person)
+                      Anzahl der Personen (inkl. deiner Person)
                     </label>
                     <select
                       name="guests"
@@ -204,7 +204,7 @@ const RSVP = () => {
                       id="dietary"
                       rows={3}
                       className="input-field"
-                      placeholder="Bitte geben Sie etwaige Allergien oder Unverträglichkeiten an..."
+                      placeholder="Bitte gib etwaige Allergien oder Unverträglichkeiten an..."
                     />
                   </div>
 
@@ -214,14 +214,14 @@ const RSVP = () => {
                       htmlFor="song"
                       className="block text-sm font-medium mb-2 text-content"
                     >
-                      Ihr Musikwunsch für die Feier
+                      Dein Musikwunsch für die Feier
                     </label>
                     <input
                       type="text"
                       name="song"
                       id="song"
                       className="input-field"
-                      placeholder="Welches Lied bringt Sie zum Tanzen?"
+                      placeholder="Welches Lied bringt Dich zum Tanzen?"
                     />
                   </div>
 
@@ -231,14 +231,14 @@ const RSVP = () => {
                       htmlFor="message"
                       className="block text-sm font-medium mb-2 text-content"
                     >
-                      Möchten Sie uns noch etwas mitteilen?
+                      Möchtest Du uns noch etwas mitteilen?
                     </label>
                     <textarea
                       name="message"
                       id="message"
                       rows={4}
                       className="input-field"
-                      placeholder="Ihre Nachricht an uns..."
+                      placeholder="Deine Nachricht an uns..."
                     />
                   </div>
                 </motion.div>
