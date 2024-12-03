@@ -56,7 +56,7 @@ const Accommodations = () => {
     <div>
       <PageHeader
         title="Unterkünfte"
-        subtitle="Wo Sie in Wiesbaden übernachten können"
+        subtitle="Wo ihr in Wiesbaden übernachten könnt"
         image="https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
       />
 

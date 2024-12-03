@@ -32,7 +32,7 @@ const Contact = () => {
     <div>
       <PageHeader
         title="Kontakt"
-        subtitle="Ihre Ansprechpartner für die Hochzeit"
+        subtitle=" Eure Ansprechpartner für die Hochzeit"
         image="https://i.imgur.com/4vMevSc.jpeg"
       />
 
@@ -50,8 +50,8 @@ const Contact = () => {
             Unser Organisationsteam
           </h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
-            Um dem Brautpaar die Vorbereitungen zu erleichtern, wenden Sie sich
-            bitte bei Fragen direkt an unser Organisationsteam. Wir helfen Ihnen
+            Um dem Brautpaar die Vorbereitungen zu erleichtern, wendet euch
+            bitte bei Fragen direkt an unser Organisationsteam. Wir helfen euch
             gerne weiter und sorgen dafür, dass alle Details perfekt koordiniert
             werden.
           </p>

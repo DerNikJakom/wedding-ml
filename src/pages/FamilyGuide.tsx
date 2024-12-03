@@ -63,7 +63,7 @@ const FamilyGuide = () => {
             Familienfreundliche Aktivitäten
           </h2>
           <p className="text-content-secondary mb-6">
-            Planen Sie einen längeren Aufenthalt? Hier sind einige nahegelegene
+            Plant ihr einen längeren Aufenthalt? Hier sind einige nahegelegene
             Attraktionen für Familien:
           </p>
           <ul className="text-content-secondary space-y-2">

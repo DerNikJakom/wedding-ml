@@ -33,8 +33,8 @@ const DressCode = () => {
             Dresscode: Black Tie
           </h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
-            Wir bitten unsere Gäste, sich an den Black-Tie-Dresscode zu halten.
-            Dies bedeutet formelle Abendgarderobe, die der Bedeutung dieses
+            Wir bitten euch, euch an den Black-Tie-Dresscode zu halten. Dies
+            bedeutet: Formelle Abendgarderobe, die der Bedeutung dieses
             besonderen Anlasses entspricht.
           </p>
         </motion.div>

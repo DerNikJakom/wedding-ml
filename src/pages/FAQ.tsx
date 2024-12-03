@@ -65,7 +65,7 @@ const faqs = [
   {
     question: "Darf ich eine Begleitung mitbringen?",
     answer:
-      "Aufgrund der begrenzten Kapazität können wir Begleitungen nur für verheiratete, verlobte und zusammenlebende Paare ermöglichen. Ihre Einladung wird klar angeben, ob eine Begleitung eingeschlossen ist.",
+      "Aufgrund der begrenzten Kapazität können wir Begleitungen nur für verheiratete, verlobte und zusammenlebende Paare ermöglichen. Deine Einladung wird klar angeben, ob eine Begleitung eingeschlossen ist.",
   },
   {
     question: "Gibt es Parkplätze?",
@@ -90,12 +90,12 @@ const faqs = [
   {
     question: "Gibt es besondere Ernährungsoptionen?",
     answer:
-      "Unser Menü enthält vegetarische, vegane und glutenfreie Optionen. Bitte geben Sie eventuelle Ernährungseinschränkungen auf Ihrer Antwortkarte an.",
+      "Unser Menü enthält vegetarische, vegane und glutenfreie Optionen. Gib eventuelle Ernährungseinschränkungen bitte auf der Antwortkarte an.",
   },
   {
     question: "Was wenn ich nicht rechtzeitig Rückmeldung gegebe habe?",
     answer:
-      "Wenn wir Ihre Rückmeldung bis zum 31.12.2024 nicht erhalten haben, wird es automatisch als ein 'Ich werde nicht kommen' gespeichert. Es tut uns sehr leid, dass wir dann nicht zusammen feiern können, aber leider müssen auch wir eine Frist einhalten und eine finale Gästeanzahl an einige unserer Dienstleister abgeben. Wir danken für das Verständnis!",
+      "Wenn wir deine Rückmeldung bis zum 31.12.2024 nicht erhalten haben, wird es automatisch als ein 'Ich werde nicht kommen' gespeichert. Es tut uns sehr leid, dass wir dann nicht zusammen feiern können, aber leider müssen auch wir eine Frist einhalten und eine finale Gästeanzahl an einige unserer Dienstleister abgeben. Wir danken für das Verständnis!",
   },
 ];
 
@@ -128,8 +128,8 @@ const FAQ = () => {
             Ihre Fragen - Unsere Antworten
           </h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
-            Hier finden Sie Antworten auf die häufigsten Fragen zu unserer
-            Hochzeit. Sollten Sie weitere Fragen haben, zögern Sie nicht, unser
+            Hier findet ihr Antworten auf die häufigsten Fragen zu unserer
+            Hochzeit. Solltet ihr weitere Fragen haben, zögert nicht, unser
             Organisationsteam zu kontaktieren.
           </p>
         </motion.div>
@@ -158,7 +158,7 @@ const FAQ = () => {
             Noch Fragen?
           </h2>
           <p className="text-content-secondary">
-            Kontaktieren Sie uns gerne unter{" "}
+            Kontaktiert uns gerne unter{" "}
             <a
               href="mailto:laura.michael.wedding@example.com"
               className="text-primary hover:text-accent underline"

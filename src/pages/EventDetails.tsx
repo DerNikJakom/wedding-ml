@@ -16,7 +16,7 @@ const EventDetails = () => {
       time: "17:00 Uhr",
       title: "Sektempfang",
       description:
-        "Genießen Sie Champagner und Häppchen während wir Fotos mit der Familie machen.",
+        "Genießt Champagner und Häppchen während wir Fotos mit der Familie machen.",
     },
     {
       time: "18:30 Uhr",
@@ -44,7 +44,7 @@ const EventDetails = () => {
     {
       time: "00:00 Uhr",
       title: "Mitternachtssnack",
-      description: "Stärken Sie sich mit kleinen Köstlichkeiten.",
+      description: "Stärkt euch mit kleinen Köstlichkeiten.",
     },
   ];
 
@@ -71,9 +71,9 @@ const EventDetails = () => {
             Der Ablauf unserer Hochzeit
           </h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
-            Hier finden Sie alle wichtigen Informationen zum Ablauf unseres
+            Hier findet ihr alle wichtigen Informationen zum Ablauf unseres
             besonderen Tages. Von der Trauung bis zum letzten Tanz haben wir
-            einen wundervollen Tag für Sie geplant.
+            einen wundervollen Tag für euch geplant.
           </p>
         </motion.div>
 
@@ -162,8 +162,8 @@ const EventDetails = () => {
             Kleiderordnung
           </h2>
           <p className="text-content-secondary max-w-2xl mx-auto">
-            Black Tie. Wir bitten unsere Gäste, sich formal zu kleiden. Weitere
-            Details finden Sie auf der{" "}
+            Black Tie. Bitten kleidet euch formal. Weitere Details finden Sie
+            auf der{" "}
             <a href="/dress-code" className="underline hover:text-content">
               Kleiderordnung
             </a>{" "}
