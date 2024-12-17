@@ -8,7 +8,7 @@ const hotels = [
     name: "Radisson Blu Schwarzer Bock Hotel",
     image: "https://i.imgur.com/iUDHosW.jpeg",
     description:
-      "Das Hotel iegt zentral am Kranzplatz, nur wenige Gehminuten vom Kurhaus und der Casino Gesellschaft entfernt. Es bietet elegante Zimmer, ein hoteleigenes Spa sowie ein reichhaltiges Frühstücksbuffet.",
+      "Das Hotel liegt zentral am Kranzplatz, nur wenige Gehminuten vom Kurhaus und der Casino Gesellschaft entfernt. Es bietet elegante Zimmer, ein hoteleigenes Spa sowie ein reichhaltiges Frühstücksbuffet.",
     address: "Kranzplatz 12, 65183 Wiesbaden",
     phone: "+49 611 1550",
     website:
